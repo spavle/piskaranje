@@ -14,7 +14,7 @@ print 'nesto' , nesto , type ( nesto )
 nesto = 2.456  # decimal
 print 'nesto' , nesto , type ( nesto )
 
-# "Tipovi" su built in objects
+# "Tipovi" su built in objects, predefined types
 
 # Numbers
 
@@ -43,6 +43,22 @@ print a [ d ]
 
 d = 9
 print a [ d ]
+
+# Tuples 
+# Files 
+# Sets 
+# Other core types Booleans, types, None
+# Program unit types Functions, modules, classes 
+# Implementation-related types Compiled code, stack tracebacks 
+
+# operacije sa "brojevima"
+
+print 123 + 321
+print 2 / 3 		#ako krenemo sa intergerom dobiti cemo interger
+print 2. / 33		#ovdje dobijemo float
+print 2 / 33.		#ovdje dobijemo float
+print 2 ** 99		#ako krenemo sa intergerom dobiti cemo duuuugacki interger
+print 2. ** 99		#ovdje dobijemo float/ scientific notation
 
 
 
