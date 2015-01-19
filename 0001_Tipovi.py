@@ -72,6 +72,17 @@ print random.random ()
 print random.choice ( [ 2 , 5 , 9 , 3 ] )
 
 
+# Strings built in object / types
+# "indexed sequences"
+
+a = "Pero Jede Jagode"
+a = 'Pero jede Jagode'
+
+# indeksiranje u sequenci ide od 0 do (len -1) ili od ( -len ) do -1
+
+print a [ 15 ]  # isto je kao i 
+print a [ -1 ]
+
 
 
 
