@@ -60,6 +60,18 @@ print 2 / 33.		#ovdje dobijemo float
 print 2 ** 99		#ako krenemo sa intergerom dobiti cemo duuuugacki interger
 print 2. ** 99		#ovdje dobijemo float/ scientific notation
 
+# matematicki modul je jako koristan
+
+import math
+print math.pi
+
+# i random modul je koristan
+
+import random
+print random.random ()
+print random.choice ( [ 2 , 5 , 9 , 3 ] )
+
+
 
 
 
