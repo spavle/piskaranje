@@ -83,6 +83,16 @@ a = 'Pero jede Jagode'
 print a [ 15 ]  # isto je kao i 
 print a [ -1 ]
 
+# slajs 'slice' ode od pocetka do kraja ,, kraj nije ukljucen u slajs
+
+print a [ 5:12 ] # 12 nije ukljucen, 5 jeste
+
+#Kad je broj izostavljen podrazumijeba se pocetak ili kraj
+
+print a [ :12 ]
+print a [ 5: ]
+print a [ : ]		#treba zapamtiti da ovo pravi novi objekt
+
 
 
 
