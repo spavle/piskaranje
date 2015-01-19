@@ -1,0 +1,7 @@
+
+Osnovni koncept:
+
+- Moduli su dijelovi programa
+- Moduli se sastoje od statementsa ( izjava )
+- Statements se sastoje od expressionsa ( izraza )
+- Expressionsi stvaraju i obradjuju objekte
