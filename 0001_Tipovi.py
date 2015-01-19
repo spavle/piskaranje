@@ -28,3 +28,16 @@ a = 0b1001
 a = "Bla"	# ide i " i ' kao odrednica stringova
 a = 'Bli'
 
+# Liste, poziciono indeksirani nizovi bilokakvih objekata limitirani sa [] 
+
+a = [ 1 , 2.345 , "Bla" , 'Bli']
+
+# Dictionaries hash ( objekt na objekt ) table sa unique keyevima limitirana sa {} , key - value par povezan je sa :
+
+d = 7
+a = { 1 : 7 , 9 : 3+7j , d : "Bla" , 'Bli' : 0b1001 }
+
+
+
+
+
