@@ -32,10 +32,18 @@ a = 'Bli'
 
 a = [ 1 , 2.345 , "Bla" , 'Bli']
 
+print a [ 2 ]
+
 # Dictionaries hash ( objekt na objekt ) table sa unique keyevima limitirana sa {} , key - value par povezan je sa :
 
-d = 7
+d = 7    # 7 je objekt koji ce biti key ide se po valueu tj. prije dodjeljivanja key-a radi se dereferencija objekta od imena
 a = { 1 : 7 , 9 : 3+7j , d : "Bla" , 'Bli' : 0b1001 }
+
+print a [ d ]
+
+d = 9
+print a [ d ]
+
 
 
 
