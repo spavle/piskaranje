@@ -87,11 +87,37 @@ print a [ -1 ]
 
 print a [ 5:12 ] # 12 nije ukljucen, 5 jeste
 
-#Kad je broj izostavljen podrazumijeba se pocetak ili kraj
+# Kad je broj izostavljen podrazumijeba se pocetak ili kraj
 
 print a [ :12 ]
 print a [ 5: ]
 print a [ : ]		#treba zapamtiti da ovo pravi novi objekt
+
+# Treci parametar u sliceu kaze kao se biraju elemwnti
+
+print a [ ::2 ]		#svaki drugi element
+print a [ ::5 ]		#svaki peti element
+print a [ ::-1 ]	#svi elementi unazad, od zadnjeg do prvog
+print a [ ::-2 ]	#svaki drugi element unazad
+
+# Sequence se mogu zbrajati ali to radi novi objekt
+
+b = "Svaki Dan"
+
+print a + b
+print a [ ::-1 ] + b
+print a [ 2:7 ] + " - " + b [ 6:2:-1 ]
+
+# Sequence se mogu i mnoziti
+
+print b * 3
+print "Asdfghj " * 4
+
+
+
+
+
+
 
 
 
