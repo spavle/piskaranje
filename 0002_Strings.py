@@ -44,6 +44,37 @@ print a.replace ( 'jagode' , 'kukuruz' )
 print a.replace ( 'jagode' , 'kukuruz' ).upper ()
 print a.replace ( 'jagode' , 'kukuruz' ).upper ().split ( 'MDE' )
 
+# string formating
+
+# old-school
+
+print 'Pero %s jede %s Jagode' % ( 'bum' , 'BUM' )
+
+# extended and indexed by .format method on string
+
+print 'Pero {0} jede {1} Jagode'.format ( 'bum' , 'BUM' )
+print 'Pero {1} jede {0} Jagode'.format  ( 'bum' , 'BUM' )
+
+# extended and positional, non - indexed
+
+print 'Pero {} jede {} Jagode'.format ( 'bum' , 'BUM' , 'Bam')
+
+# multiline strings determined by triple quotes
+
+m = """ pero
+jede
+jagode
+
+"""
+
+print m
+
+# inicode
+
+print a
+print a.encode ( 'utf8' )
+print a.encode ( 'utf16' )
+# print a.encode ( 'utf16' ).decode( 'latin1' ) ????
 
 
 
