@@ -89,8 +89,8 @@ print a [ 5:12 ] # 12 nije ukljucen, 5 jeste
 
 # Kad je broj izostavljen podrazumijeva se pocetak ili kraj
 
-print a [ :12 ]
-print a [ 5: ]
+print a [ :12 ]		# od pocetka
+print a [ 5: ]		# do kraja
 print a [ : ]		#treba zapamtiti da ovo pravi novi objekt
 
 # Treci parametar u sliceu kaze kao se biraju elemwnti
