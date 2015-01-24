@@ -87,7 +87,7 @@ print a [ -1 ]
 
 print a [ 5:12 ] # 12 nije ukljucen, 5 jeste
 
-# Kad je broj izostavljen podrazumijeba se pocetak ili kraj
+# Kad je broj izostavljen podrazumijeva se pocetak ili kraj
 
 print a [ :12 ]
 print a [ 5: ]
