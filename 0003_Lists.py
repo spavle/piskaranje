@@ -78,3 +78,12 @@ listica = range ( 176 , - 22  , - 17)
 
 print "lista napravljena range-om i negativnim stepom ",listica
 
+print "lista prije inserta", a
+
+a.insert (1,98765) # na drugo mjesto se stavlja objekt
+
+print "lista poslije inserta", a  # dodan je novi element i svi elementi poslije njega su pomaknuti za jedno mjesto ulijevo
+
+
+
+
