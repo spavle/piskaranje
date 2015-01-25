@@ -84,6 +84,12 @@ a.insert (1,98765) # na drugo mjesto se stavlja objekt
 
 print "lista poslije inserta", a  # dodan je novi element i svi elementi poslije njega su pomaknuti za jedno mjesto ulijevo
 
+del a [3]	# mice se cetvrti element iz liste
 
+print "lista poslije del-a", a  # uklonjen je element iz liste 
+
+a.remove (-17)		# mi;e se objekt '-17' iy liste
+
+print "lista poslije removea", a  # uklonjen je odredjeni objekt iz liste 
 
 

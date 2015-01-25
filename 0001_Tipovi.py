@@ -113,6 +113,14 @@ print a [ 2:7 ] + " - " + b [ 6:2:-1 ]
 print b * 3
 print "Asdfghj " * 4
 
+# Dictionaries su key-value parovi u viticastim zagradama
+
+d = { 'prvi':"vrijednost", 'neki_key':12.45 , -77.34 : 12+3j} # klasicno pravljenje dictionarya
+
+print "dictionary", d # unutar dictionarya poredak je slu;ajan i nema veye sa onim koji smo inicijalno stavili
+
+
+
 
 
 
