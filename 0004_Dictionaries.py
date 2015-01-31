@@ -30,3 +30,25 @@ print "uklonjena vrijednost i kljuc", rjecnik
 rjecnik  [ 22 ] = 7		#dodan novi maping
 
 print "dictionary sa novim mapingom u sebi", rjecnik
+
+# drugi nacin izrade dictionary-a
+
+nesto = {}
+
+nesto [ 1 ] = "bla"
+nesto [ 'bli'] = 2345
+nesto [ 2.34567 ] = 7+3j
+
+print "ovako napravljen dictionary" , nesto
+
+# pravljenje dictionary-a sa zipom
+
+kljucevi = [ 21 , 'ihaj' , 9+7j , -0.0000455 ] # obavezno lista
+vrijednosti = [ "BuBuuuu" , 987654346787656879967565 , 23.32424 , 8-6j ] # obavezno lista
+
+novi_dic = zip ( kljucevi, vrijednosti )
+
+print "dictionary napravljen zipom" , novi_dic
+
+
+
