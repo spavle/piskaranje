@@ -30,3 +30,28 @@ print "uklonjena vrijednost i kljuc", rjecnik
 rjecnik  [ 22 ] = 7		#dodan novi maping
 
 print "dictionary sa novim mapingom u sebi", rjecnik
+
+print "rjecnik je tipa" , type ( rjecnik )
+
+# pravljene dictionarya keywordom dict ()
+
+bla='naslov'  #ovaj nece biti prihvaceno kao objekt referenca u slijedecoj liniji nego kao string
+novi_rijecnik = dict (bla=1, bli=2 , blu=3 , ble='bleee') # izgeda da ovo prima samo stringove kao kljuceve 
+
+print "novi rijecnik" , novi_rijecnik
+
+novi_rijecnik2 =  {'bla':'bli' , 'blu':1 , 2:'ble' , 3:4}
+print "novi rijecnik2" , novi_rijecnik2
+
+novi_rijecnik2 = dict ( {'bla':'bli' , 'blu':1 , 2:'ble' , 3:4} )	#glupost
+print "novi rijecnik2" , novi_rijecnik2
+
+novi_rijecnik2 = dict ( zip ([ 'bla', 'blu',2,3],[ 'bli',1,'ble',4] )	)
+print "novi rijecnik2" , novi_rijecnik2
+
+novi_rijecnik2 = dict ( [ ('bla','bli') , ('blu',1) , (2,'ble') , (3,4) ] )	#LISTA "PAROVA"
+print "novi rijecnik2" , novi_rijecnik2
+
+
+
+
