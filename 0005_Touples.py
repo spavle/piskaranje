@@ -4,7 +4,11 @@ nesto = ( 3, "bal", 51.9 , 7+3j, [ 2 , 6 , 'ina'] )
 
 print "Touple", nesto
 
+# touple je sequenca i ima iterator i sve ostalo
 print nesto [ 2: ]
+
+for a in nesto:
+   print a
 
 # vrijedi sve kao za listu samo je immutable
 

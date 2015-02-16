@@ -88,9 +88,15 @@ print vrijednost
 
 # ispis dictionary-a sortiranog po kljucevima
 
+
 for brojalica in sorted (novi_rijecnik):
    print brojalica, ' -> ', novi_rijecnik [ brojalica ]
 
 for a in range ( 1,6 ):
    print a
 
+
+# dictionary je hash tablica i treba mu nakalemiti SMISLENI iterator prije upotrebe, ovo æe dati samo key-eve
+for a in novi_rijecnik:
+   print a 
+   
