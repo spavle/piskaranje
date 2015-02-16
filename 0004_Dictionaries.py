@@ -17,7 +17,17 @@ print "duzina dictionarya", len ( rjecnik )
 print "dali je kljuc 2 u dictionaryu", 2 in rjecnik
 print "dali je kljuc 1 u dictionaryu", 1 in rjecnik
 
-print "svi kljucevi iz dictionarya", rjecnik.keys ()
+print "svi kljucevi iz dictionarya prezentirani kao lista", rjecnik.keys ()
+
+print "svi vrijednosti  iz dictionarya prezentirani kao lista", rjecnik.values ()
+
+print "svi elementi iz dictionary-a", rjecnik.items ()
+
+# .items vraca listu tuple-ova
+
+for a in rjecnik.items ():
+   print a
+   print type ( a )
 
 rjecnik  [ 1 ] = 9 # kljucu 1 se dodaje nova vrijednost
 
@@ -52,6 +62,35 @@ print "novi rijecnik2" , novi_rijecnik2
 novi_rijecnik2 = dict ( [ ('bla','bli') , ('blu',1) , (2,'ble') , (3,4) ] )	#LISTA "PAROVA"
 print "novi rijecnik2" , novi_rijecnik2
 
+print "novi rijecnik" , novi_rijecnik
 
+# provjera dali neki key postoji u rjecniku
 
+if not "blob" in novi_rijecnik:
+   print "nema blob"
+else:
+   print "ima blob"
+   
+if not "bla" in novi_rijecnik:
+   print "nema bla"
+else:
+   print "ima bla"
+
+# provjera kljuca sa getom i defaultnom vrijednosti
+
+vrijednost = novi_rijecnik.get ( 'blob' , 'neima' )
+
+print vrijednost
+
+vrijednost = novi_rijecnik.get ( 'ble' , 'neima' )
+
+print vrijednost
+
+# ispis dictionary-a sortiranog po kljucevima
+
+for brojalica in sorted (novi_rijecnik):
+   print brojalica, ' -> ', novi_rijecnik [ brojalica ]
+
+for a in range ( 1,6 ):
+   print a
 

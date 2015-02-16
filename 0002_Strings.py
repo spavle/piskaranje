@@ -1,4 +1,4 @@
-# Sequences of unicode chars
+# Sequences of unicode chars and only chars NOT OBJECTS
 
 # String a imutable once created it can not be changed
 
@@ -69,12 +69,16 @@ jagode
 
 print m
 
-# inicode
+# unicode
 
 print a
 print a.encode ( 'utf8' )
 print a.encode ( 'utf16' )
 # print a.encode ( 'utf16' ).decode( 'latin1' ) ????
+
+print a
+print a[2]
+print a[2:5]
 
 
 
