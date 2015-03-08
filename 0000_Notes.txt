@@ -5,3 +5,6 @@ Osnovni koncept:
 - Moduli se sastoje od statementsa ( izjava )
 - Statements se sastoje od expressionsa ( izraza )
 - Expressionsi stvaraju i obradjuju objekte
+
+
+python ima 'profile' module for isolating bottlenecks

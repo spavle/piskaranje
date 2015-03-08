@@ -17,7 +17,6 @@ print "duzina dictionarya", len ( rjecnik )
 print "dali je kljuc 2 u dictionaryu", 2 in rjecnik
 print "dali je kljuc 1 u dictionaryu", 1 in rjecnik
 
-print "svi kljucevi iz dictionarya", rjecnik.keys ()
 
 rjecnik  [ 1 ] = 9 # kljucu 1 se dodaje nova vrijednost
 
