@@ -1,6 +1,6 @@
 # Touples are sequences of IMMUTABLE OBJECTS
 
-nesto = ( 3, "bal", 51.9 , 7+3j, [ 2 , 6 , 'ina'] )
+nesto = ( 3, "bal", 3, 51.9 , 7+3j, [ 2 , 6 , 'ina'] )
 
 print "Touple", nesto
 
