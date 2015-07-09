@@ -2,7 +2,7 @@
 
 from mc import * # ajmo probati ovaj import
 
-mc = Minecraft()
+mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 radnaPozicija = mc.player.getPos()		#gdje sam
 
