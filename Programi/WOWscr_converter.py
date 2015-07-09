@@ -18,7 +18,6 @@ for subdir, dirs, files in os.walk('./'):		#rekurzivno prolazi cijelo stablo
 #   print files
 #   print type (files)
    for file in files:
-#      print file , "---------------- orginal"
       B = re.search ( r'WoWScrnShot_(\d{6})_(\d{6})\.jpg' , file )
       if B:
 #         print file, "Drugi B"  , B.group ()
@@ -34,8 +33,7 @@ for subdir, dirs, files in os.walk('./'):		#rekurzivno prolazi cijelo stablo
 
 for slika in popis_fajli:
    novoime = "MyWoWmeme_20" + slika [16:18] + "_"  + slika [12:14] + "_"  + slika [14:16] + "_" + slika [19:25] + ".jpg"
-#   novoime = "bla"
-#   print type (slika)
+
    print slika, " ---> ", novoime
 #   print " Godina ", slika [16:18]
 #   print " Mjesec ", slika [12:14]
