@@ -1,4 +1,4 @@
-# pravi stazu od zlatnih blokova dugacku 100 siroku 3
+# crta objekt zadan u dostavljenoj listi
 from mc import * # ajmo probati ovaj import
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
@@ -32,15 +32,4 @@ def crtanje (ulaz):
    return 1
 
 
-
-lik2=[
-[2,0,-1,STONE,0],
-[3,0,-1,STONE,0],
-[4,-1,-1,STONE,0],
-[4,0,-1,STONE,0],
-[4,0,1,STONE,0],
-[4,1,-1,STONE,0],
-[5,0,-1,STONE,0],
-[6,0,0,GOLD_BLOCK,0],
-]
 
