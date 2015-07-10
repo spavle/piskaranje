@@ -14,8 +14,21 @@ lik=[
 [5,0,-1,STONE,0],
 ]
 
+#"neshto" :)
+lik2=[
+[2,0,-1,STONE,0],
+[3,0,-1,STONE,0],
+[4,-1,-1,STONE,0],
+[4,0,-1,STONE,0],
+[4,0,1,STONE,0],
+[4,1,-1,STONE,0],
+[5,0,-1,STONE,0],
+[6,0,0,GOLD_BLOCK,0],
+]
+
+
 #zid sa prozorom
-zid=[
+zid_prozor=[
 [4,-1,0,1,0],
 [4,0,0,1,0],
 [4,1,0,1,0],
@@ -31,11 +44,9 @@ zid=[
 #zid sa vratima 
 
 zid_ulaz = [
-[4,-1,0,1,0],	#prvo nacrtamo zid
-#[4,0,0,1,0],	#moramo ostaviti rupu u zidu za vrata
+[4,-1,0,1,0],	#prvo nacrtamo zid sa rupom za vrata
 [4,1,0,1,0],
 [4,-1,1,1,0],
-#[4,0,1,1,0],	#moramo ostaviti rupu u zidu za vrata
 [4,1,1,1,0],
 [4,-1,2,1,0],
 [4,0,2,1,0],
