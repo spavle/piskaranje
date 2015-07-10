@@ -10,11 +10,6 @@ radnaPozicija = mc.player.getPos()
 #kamo gledam
 smjerRada = mc.player.getDirection ()	#uzmem kamo gledam
 smjerRada.y = radnaPozicija.y - 1		#radimo na levelu ispod
-#smjerRada.x = round (smjerRada.x) # nabacimo cjelobrojni inkrement/dekrement
-#smjerRada.z = round (smjerRada.z)
-
-
-
 
 #smjer gledanja radi preglednosti spremimo u "vektor""
 yLevelRada=smjerRada.y
@@ -27,9 +22,9 @@ else:
 
 #crtaj liniju
 if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-   for brojalica in range(1,15) :    # 5 duzina
+   for brojalica in range(1,15) :    # 15 duzina
       gdjex=radnaPozicija.x + Vx*brojalica + Vx*0    # pomak po x
       gdjez=radnaPozicija.z + Vz*0 + Vz*brojalica	# pomak po y
-      mc.postToChat("gdjex: %f gdjez: %f brojalica %f" % ( gdjex , gdjez , brojalica) )
+      #mc.postToChat("gdjex: %f gdjez: %f brojalica %f" % ( gdjex , gdjez , brojalica) )
       mc.setBlock(gdjex , smjerRada.y , gdjez , GOLD_BLOCK)		#postavi blok
 
