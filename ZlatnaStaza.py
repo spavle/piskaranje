@@ -1,4 +1,4 @@
-# pravi stazu od zlatnih blokova dugacku 100 siroku 3
+# pravi stazu od zlatnih blokova dugacku 2000 siroku 3
 
 from mc import * # ajmo probati ovaj import
 
@@ -8,15 +8,15 @@ radnaPozicija = mc.player.getPos()		#gdje sam
 
 smjerRada = mc.player.getDirection ()	#uzmem kamo gledam
 smjerRada.y = radnaPozicija.y - 1		#radimo na levelu ispod
-smjerRada.x = round (smjerRada.x) # nabacimo cjelobrojni inkrement/dekrement
+smjerRada.x = round (smjerRada.x) 		# nabacimo cjelobrojni inkrement/dekrement
 smjerRada.z = round (smjerRada.z)
 
-korektor=0
+korektor=0							#korektor za postavljanje baklj i pravom smijeru
 if smjerRada.x:
-   korektor=2			#korektor za postavljanje baklj i pravom smijeru
+   korektor=2			
 
 if  abs ( smjerRada.x )  != abs ( smjerRada.z ) :	#da ne ode pod 45
-   for brojalica in  range (2000) :			#duzina 20
+   for brojalica in  range (2000) :			#duzina 2000
       radnaPozicija.x += smjerRada.x
       radnaPozicija.z += smjerRada.z
       mc.setBlock(radnaPozicija.x , smjerRada.y , radnaPozicija.z , GOLD_BLOCK) #sredisnji blok
