@@ -1,12 +1,11 @@
-#ispred lika chisti pjesak 3x3x20
-
+#ispred lika radi dirt samo na mjestima gdje je stone i gravel 3 sirine i dugacak 9
 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def sandBager ():
+def travnjak ():
    """
-   ispred lika chisti pjesak 3x3x20
+   ispred lika radi dirt samo na mjestima gdje je stone i gravel 3 sirine i dugacak 9
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()		
@@ -23,16 +22,18 @@ def sandBager ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -1 , 2 ) :    		# prodji chep
-         for dY  in  range( 0 , 4 ) : 
-            for dX in range ( 1 , 21 ) :
+      for dZ in  range ( -1 , 2 ) :    		# prodji shirinu
+         for dY  in ( -1 , 0) : 			#samo jedan level ispod
+            for dX in  range ( 1 , 10 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
-               gdjeY=radnaPozicija.y + dY
+               gdjeY=radnaPozicija.y + dY						# pomak po y
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-               if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) == SAND.id :	#ako je pijesak
-                  mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR)					#postavi blok zraka
+               if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) == GRAVEL.id :	#ako je shljunak
+                  mc.setBlock(gdjeX , gdjeY , gdjeZ , DIRT)					#postavi zemlju
+               if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) == STONE.id :	#ako je kamen
+                  mc.setBlock(gdjeX , gdjeY , gdjeZ , DIRT)					#postavi zemlju 
                #mc.postToChat("gdjeX: %f gdjeY: %f gdjeZ: %f " % ( gdjeX , gdjeY , gdjeZ  ) )
    #mc.postToChat("X: %f Y: %f Z: %f " % ( radnaPozicija.x , radnaPozicija.y , radnaPozicija.z  ) )
    return 1
    
-sandBager ()
+travnjak ()

@@ -26,7 +26,7 @@ def chistach ():
          for dY  in  range ( 0 , 4 ) : 
             for dX in  range ( 1 , 10  ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
-               gdjeY=radnaPozicija.y + dY
+               gdjeY=radnaPozicija.y + dY						# pomak po y
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknuti :
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR)			#postavi blok
@@ -34,6 +34,6 @@ def chistach ():
 
    
    
-zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id ]
+zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER.id]
 
 chistach ()

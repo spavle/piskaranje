@@ -1,11 +1,11 @@
-#ispred lika cisti pravokutnik  3x4 i dugacak 9 i to samo blokove iz liste 
+#ispred lika cisti pravokutnik  3x5 i dugacak 100 i to samo blokove iz liste poplocen glovestone
 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def tunel ():
    """
-   ispred lika cisti pravokutnik  3x4 i dugacak 9 i to samo blokove iz liste zaMaknuti
+   iispred lika cisti pravokutnik  3x5 i dugacak 100 i to samo blokove iz liste poplocen glovestone
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()		
@@ -23,19 +23,19 @@ def tunel ():
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dZ in  range( -1 , 2 ) :    		# prodji cijeli pravokutnik
-         for dY  in  range ( -1 , 4 ) : 
-            for dX in  range ( 1 , 50  ) :
+         for dY  in  range ( -1 , 5 ) : 
+            for dX in  range ( 1 , 101  ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                if dY == -1 :
-                  mc.setBlock( gdjeX , gdjeY , gdjeZ , 89 )
+                  mc.setBlock( gdjeX , gdjeY , gdjeZ , 89 )		#u podlogu obavezno stavi glowstone
                elif mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknuti :
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR)			#postavi blok
    return 1
 
    
    
-zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id ]
+zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER.id , LAVA_FLOWING.id , LAVA.id ]
 
 tunel ()
