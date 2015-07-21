@@ -51,7 +51,7 @@ zid_ulaz = [
 [4,-1,2,1,0],
 [4,0,2,1,0],
 [4,1,2,1,0],
-[4,0,0,195,0], #i na kraju postavimo vrata
+[4,0,0,195,0], #i na kraju postavimo vrata prvo doljnji dio
 [4,0,1,195,8], #8 govori da je ovo gornji dio vrata
 ]
 

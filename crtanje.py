@@ -10,7 +10,7 @@ def crtanje (ulaz):
    3. parametar y koordinata
    4. parametar id bloka koji se postavlja
    """
-   #gdje sam
+   #gdje sam detaljno
    radnaPozicija = mc.player.getPos()		
    #kamo gledam
    smjerRada = mc.player.getDirection ()			#uzmem kamo gledam
