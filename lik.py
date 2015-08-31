@@ -55,4 +55,32 @@ zid_ulaz = [
 [4,0,1,195,8], #8 govori da je ovo gornji dio vrata
 ]
 
-crtanje ( zid_ulaz )
+brlog = [
+[4,-1,0,1,0],	#prvo nacrtamo zid sa rupom za vrata
+[4,1,0,1,0],
+[4,-1,1,1,0],
+[4,1,1,1,0],
+[4,-1,2,1,0],
+[4,0,2,1,0],
+[4,1,2,1,0],
+[4,0,0,195,0], #i na kraju postavimo vrata prvo doljnji dio
+[4,0,1,195,8], #8 govori da je ovo gornji dio vrata
+[5,-1,0,1,0],	#bocni zidovi
+[5,1,0,1,0],
+[5,-1,1,1,0],
+[5,1,1,1,0],
+[5,-1,2,1,0],
+[5,1,2,1,0],
+[6,-1,0,1,0],	#zadnji zid
+[6,0,0,1,0],
+[6,1,0,1,0],
+[6,-1,1,1,0],
+[6,0,1,1,0],
+[6,1,1,1,0],
+[6,-1,2,1,0],
+[6,0,2,1,0],
+[6,1,2,1,0],
+[5,0,3,1,0],		# "Krov"
+]
+
+crtanje ( brlog )
