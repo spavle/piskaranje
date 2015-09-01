@@ -33,21 +33,12 @@ def silazak ():
       korektor = 0x3
    if Vz == -1 :
       korektor = 0x2
-   #mc.postToChat("vX: %f vZ: %f " % ( Vx , Vz  ) )
-   #mc.postToChat("X: %f Y: %f Z: %f " % ( radnaPozicija.x , radnaPozicija.y , radnaPozicija.z  ) )
-   #visina = mc.getHeight ( radnaPozicija.x  , radnaPozicija.z)
-   visina = mc.player.getTilePos ()
-   mc.postToChat( type ( visina.y ))
-   mc.postToChat( "Visina: %d : " % ( visina.y ))
-
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       while  3  > 2 :			# dok je iznad baznog
-         #visina.y -= 1            ovo sa visinom ne radi
          radnaPozicija.y -= 1					# pomak dolje
          radnaPozicija.x += ( Vx*1  + Vz*0 ) 	    # pomak relativni "naprijed"
          radnaPozicija.z += ( Vx*0  + Vz*1 ) 	    # pomak relativni "naprijed"		 
-         mc.postToChat("X: %f Y: %f Z: %f " % ( radnaPozicija.x , radnaPozicija.y , radnaPozicija.z  ) )
          for dZ in  range( -1 , 2 ) :    		# shirina
             for dY  in  range( 0 , 6 ) :		#visinat
                for dX in range ( 1 , 2 ) :   
@@ -56,7 +47,7 @@ def silazak ():
                   gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                   if dY == 0 :	#dolje stepenicu staviti
                      if mc.getBlock( gdjeX , gdjeY , gdjeZ ) != BEDROCK.id	:				#ako nije kraj
-                        mc.setBlock( gdjeX , gdjeY , gdjeZ , 156 ,  korektor )					#postavi stepenice
+                        mc.setBlock( gdjeX , gdjeY , gdjeZ , 156 ,  korektor )					#postavi stepenice ispravno usmjerene
                      else :																	# ako naleti na dno onda kraj
                         return 1
                   else :
