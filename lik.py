@@ -212,4 +212,4 @@ polje = [
 [11 , 5 , 0 , 1,0 ],
 ]
 
-crtanje2 ( brlog )
+crtanje ( polje )
