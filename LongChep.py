@@ -22,8 +22,8 @@ def LongChep ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range ( -1 , 2 ) :    		# prodji chep
-         for dY  in ( 0 , 1 , 2 ) : 
+      for dZ in  range ( -3 , 4 ) :    		# prodji chep
+         for dY  in ( -1 , 0 , 1 , 2 ) : 
             for dX in  range ( 1 , 21 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
