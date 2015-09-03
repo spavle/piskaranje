@@ -9,6 +9,7 @@ def postepeniSilazak ():
    ispred lika pravi stepenice prema dolje do badrock i stavlja baklje
    """
    #priprema
+   zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanje sve poremete
    smjer = [
    [ [0,0] ,[4,3] ,[0,0] ],
    [ [2,1] ,[0,0] ,[1,2] ],
@@ -35,12 +36,24 @@ def postepeniSilazak ():
       korektor = 0x2
 
    #crtanje
+                 
+   
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       while  1 :			# dok je iznad baznog
          radnaPozicija.y -= 1					# pomak dolje
          radnaPozicija.x += ( 2*Vx*1  + 2*Vz*0 ) 	    # pomak relativni "naprijed"
          radnaPozicija.z += ( 2*Vx*0  + 2*Vz*1 ) 	    # pomak relativni "naprijed"		 
          mc.postToChat("X: %f Y: %f Z: %f " % ( radnaPozicija.x , radnaPozicija.y , radnaPozicija.z  ) )
+         
+         for dZ in  range( -3 , 5 ) :    		# shirina
+            for dY  in  range( -1 , 8 ) :		#visinat
+               for dX in range ( 0 , 4 ) :   
+                  gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
+                  gdjeY=radnaPozicija.y + dY
+                  gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
+                  if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknutiOpasno :
+                     mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 2 )			#postavi blok   
+         
          for dZ in  range( -1 , 2 ) :    		# shirina
             for dY  in  range( 0 , 6 ) :		#visinat
                for dX in range ( 1 , 3 ) :   

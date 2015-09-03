@@ -22,20 +22,35 @@ def tunel ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -1 , 2 ) :    		# prodji cijeli pravokutnik
-         for dY  in  range ( -1 , 5 ) : 
-            for dX in  range ( 1 , 101  ) :
+      for dZ in  range( -9 , 9 ) :    		# prodji cijeli pravokutnik
+         for dY  in  range ( -3 , 9 ) : 
+            for dX in  range ( -1 , 53  ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-               if dY == -1 :
-                  mc.setBlock( gdjeX , gdjeY , gdjeZ , 89 )		#u podlogu obavezno stavi glowstone
-               elif mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknuti :
+               if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknutiOpasno :
+                  mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 2 )			#postavi blok      
+
+   for dZ in  range( -7 , 8 ) :    		# prodji cijeli pravokutnik
+         for dY  in  range ( -1 , 8 ) : 
+            for dX in  range ( 1 , 51  ) :
+               gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
+               gdjeY=radnaPozicija.y + dY
+               gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
+               if  ( dY != 7 ) and ( dY != -1 ) and ( mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknuti ) :
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR)			#postavi blok
+               
+               if  ( dY == -1 ) or ( dY == 7) :
+                  if (abs (dX) % 3) == 0  and ( abs (dZ) % 3 ) == 0 :
+                     mc.setBlock( gdjeX , gdjeY , gdjeZ , 89 )		#u podlogu obavezno stavi glowstone
+                  else :
+                     mc.setBlock(gdjeX , gdjeY , gdjeZ , 155 , 1)			#postavi blok
+               
    return 1
 
    
    
 zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER.id , LAVA_FLOWING.id , LAVA.id ]
-
+zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanje sve poremete
+ 
 tunel ()
