@@ -11,7 +11,7 @@ lik=[
 [3,0,-1,STONE,0],
 [4,-1,-1,STONE,0],
 [4,0,-1,STONE,0],
-[4,1,-1,STONE,0],
+[4,1,-1,GOLD_BLOCK,0],
 [5,0,-1,STONE,0],
 ]
 
@@ -212,4 +212,22 @@ polje = [
 [11 , 5 , 0 , 1,0 ],
 ]
 
-crtanje ( polje )
+
+#gdje sam detaljno
+radnaPozicija = mc.player.getPos()		
+#kamo gledam
+smjerRada = mc.player.getDirection ()			#uzmem kamo gledam
+#smjer gledanja radi preglednosti spremimo u "vektor""
+Vx=0												#pocetne vrijednosti su nule
+Vz=0
+if abs (smjerRada.x) > abs (smjerRada.z): 		#nadje se dominanti smjer i spremi u vektor
+   Vx=round(smjerRada.x)
+else:
+   Vz=round(smjerRada.z)
+#crtanje
+if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
+   for nr in range ( 0 , 9 , 3 ):
+      crtaj_tocku ( rel2abs ( gdjeSam (), [3 + nr , 0 , 0 ],  gdjeGledam () ) , 1,0  )
+      crtaj_tocku ( rel2abs ( gdjeSam (), [3 + nr , 1 , 0 ],  gdjeGledam () ) , 1,2  )
+      crtaj_tocku ( rel2abs ( gdjeSam (), [4 + nr , -1 , 0 ], gdjeGledam () ) , 1,3  )
+      #crtaj_kvadar ( rel2abs ( [radnaPozicija.x , radnaPozicija.z , radnaPozicija.y   , 1 , 4) 

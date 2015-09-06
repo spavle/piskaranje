@@ -25,11 +25,102 @@ def crtanje (ulaz):
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for brojalica in ulaz :    		# prodji listu
-         gdjex=radnaPozicija.x + Vx*brojalica [0] + Vz*brojalica[1]    		# pomak po x
+         gdjex=radnaPozicija.x + Vx*brojalica [0] - Vz*brojalica[1]    		# pomak po x
          gdjez=radnaPozicija.z + Vx*brojalica[1] + Vz*brojalica[0]			# pomak po y
          #mc.postToChat("gdjex: %f gdjez: %f z-os: %f " % ( gdjex , gdjez , brojalica [1] ) )
          mc.setBlock(gdjex , brojalica[2] , gdjez , brojalica[3], brojalica[4])			#postavi blok
    return 1
+   
+def rel2abs ( inPoz ,  dPoz  , smjer  ) :
+   """
+   funkcija za pretvaranje relativnih u apsolutne koordinate  prima parametre: 
+   1. Parametar inPoz
+      1. parametar origin x koordinata
+      2. parametar origin z koordinata
+      3. parametar origin y koordinata
+   2. Parametar dPoz
+      1. parametar dX
+      2. parametar dZ
+      3. parametar dY
+   3. smjer
+      1. Vx smjer
+      2. Vy smjer gledanja
+   
+   DEFAULT: "gleda prema" X pozitivnoj osi
+   
+   vraca listu sa 3 koordinate
+   
+   1. x
+   2. y
+   3. z
+   """
+   if  abs ( smjer [0] )  != abs ( smjer [1] ) :		# ne pod 45
+      """
+      gdjeX=inX + Vx*dX - Vz*dZ    		# pomak po x
+      gdjeZ=inZ + Vx*dZ + Vz*dX			# pomak po y
+      gdjeY  = inY + dY
+      """
+      gdjeX=inPoz [0] + smjer [0]*dPoz[0] - smjer [1]*dPoz[1]    		# pomak po x
+      gdjeZ=inPoz [1] + smjer [0]*dPoz[1] + smjer [1]*dPoz[0]			# pomak po y
+      gdjeY  = inPoz [2] + dPoz[2]
+      
+   return (  [ gdjeX , gdjeY , gdjeZ  ] )
+   
+def crtaj_tocku ( inLista , blok_id , blok_dv = 0 ) :
+   """
+   funkcija za crtanje tocke
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. koji blok 
+   3. koja varijanta bloka DFAULT osnovni oblik
+   """
+   mc.setBlock( inLista [ 0 ] , inLista [ 1 ], inLista [ 2 ] , blok_id , blok_dv )
+   return
+ 
 
+"""" 
+def crtaj_kvadar ( inListaPoc , inListaKraj , blok_id , blok_dv = 0 ) :
+   """
+   funkcija za crtanje tocke
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   3. koji blok 
+   4. koja varijanta bloka DFAULT osnovni oblik
+   """
+   mc.setBlock( inListaPoc [ 0 ] , inListaPoc [ 1 ], inListaPoc [ 2 ] , inListaKraj [ 0 ] , inListaKraj [ 1 ], inListaKraj [ 2 ] , blok_id , blok_dv )
+   return
+
+"""   
+   
+def gdjeSam ():
+   """
+   odredjuje trenutnu poziciju lika i vraca je u listi:
+   1. X
+   2. Z
+   3. Y
+   formatirano za rel2abs
+   """
+   
+   #gdje sam detaljno
+   radnaPozicija = mc.player.getPos()	
+   return (  [radnaPozicija.x , radnaPozicija.z , radnaPozicija.y  ] )
+
+   
+def gdjeGledam () :
+   """
+   odredjuje trenutni smjer lika i vraca ga u listi:
+   1. Vx
+   2. Vz
+   formatirano za rel2abs
+   """
+   
+   smjerRada = mc.player.getDirection ()			#uzmem kamo gledam
+   #smjer gledanja radi preglednosti spremimo u "vektor""
+   Vx=0												#pocetne vrijednosti su nule
+   Vz=0
+   if abs (smjerRada.x) > abs (smjerRada.z): 		#nadje se dominanti smjer i spremi u vektor
+      Vx=round(smjerRada.x)
+   else:
+      Vz=round(smjerRada.z)   
+   return ( [Vx , Vz] )
 
 
