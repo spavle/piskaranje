@@ -225,9 +225,17 @@ if abs (smjerRada.x) > abs (smjerRada.z): 		#nadje se dominanti smjer i spremi u
 else:
    Vz=round(smjerRada.z)
 #crtanje
+pozicija = gdjeSam ()
 if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-   for nr in range ( 0 , 9 , 3 ):
+   """
+   for nr in range ( 0 , 20 , 6 ):
       crtaj_tocku ( rel2abs ( gdjeSam (), [3 + nr , 0 , 0 ],  gdjeGledam () ) , 1,0  )
       crtaj_tocku ( rel2abs ( gdjeSam (), [3 + nr , 1 , 0 ],  gdjeGledam () ) , 1,2  )
       crtaj_tocku ( rel2abs ( gdjeSam (), [4 + nr , -1 , 0 ], gdjeGledam () ) , 1,3  )
+      
       #crtaj_kvadar ( rel2abs ( [radnaPozicija.x , radnaPozicija.z , radnaPozicija.y   , 1 , 4) 
+      
+      crtaj_bitmap ( [ pozicija[0] , pozicija [1] , pozicija [2] ],  gdjeGledam ()  , lik  , nr ,  nr/2 ) 
+   """
+   
+   crtaj_kvadar ( gdjeSam () , [ 2 , -1 , 2 ]  , [ 6 , 2 , 4  ] , gdjeGledam () , 1 , 2 )

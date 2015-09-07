@@ -66,30 +66,55 @@ def rel2abs ( inPoz ,  dPoz  , smjer  ) :
       
    return (  [ gdjeX , gdjeY , gdjeZ  ] )
    
-def crtaj_tocku ( inLista , blok_id , blok_dv = 0 ) :
+def crtaj_tocku ( inLista , blok_id , blok_dv = 0 , pomakX = 0 , pomakZ = 0 ) :
    """
    funkcija za crtanje tocke
    1. parametar lista sa koordinatama ( X , Y , Z )
    2. koji blok 
    3. koja varijanta bloka DFAULT osnovni oblik
+   4. pomak po X osi
+   5. pomak po Z osi 
    """
    mc.setBlock( inLista [ 0 ] , inLista [ 1 ], inLista [ 2 ] , blok_id , blok_dv )
    return
  
 
-"""" 
-def crtaj_kvadar ( inListaPoc , inListaKraj , blok_id , blok_dv = 0 ) :
+def crtaj_bitmap ( inOrigin ,  smjer , inBitmap , pomakX = 0 , pomakZ = 0) :
+   """
+   funkcija za crtanje bitmape
+   funkcija za crtanje tocke
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. smjer
+   3. bitmapa
+   4. pomak po X osi
+   5. pomak po Z osi 
+   
+   Origin je zadan ili pozicija treba pretuci u apsolutne koordinate i nacrtati tocku za svaki red 
+   """
+   for red in inBitmap :
+      crtaj_tocku ( rel2abs (  inOrigin ,  [ red  [0] + pomakX, red  [1] + pomakZ, red  [2] ] , smjer ) , red  [3] , red  [4] )
+      
+   return
+
+
+def crtaj_kvadar ( origin , poc  , kraj , smjer , blok_id , blok_dv = 0 ) :
    """
    funkcija za crtanje tocke
    1. parametar lista sa koordinatama ( X , Y , Z )
    2. parametar lista sa koordinatama ( X , Y , Z )
+   3. parametar lista sa koordinatama ( X , Y , Z )
+   4. smjer crtanja
    3. koji blok 
    4. koja varijanta bloka DFAULT osnovni oblik
+   
+   
    """
-   mc.setBlock( inListaPoc [ 0 ] , inListaPoc [ 1 ], inListaPoc [ 2 ] , inListaKraj [ 0 ] , inListaKraj [ 1 ], inListaKraj [ 2 ] , blok_id , blok_dv )
+   od = rel2abs ( origin , poc , smjer )
+   do = rel2abs ( origin , kraj , smjer )
+   mc.setBlocks ( od , do , blok_id , blok_dv )
    return
 
-"""   
+   
    
 def gdjeSam ():
    """
