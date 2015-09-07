@@ -70,7 +70,7 @@ def Kanal ():
       if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
          for dZ in  range( -4 - prosirenje, 5 + prosirenje ) :    		# prodji cijeli pravokutnik
             #mc.postToChat("Chischenje dZ: %f " % ( dZ  ) )
-            for dY  in  range (  -1 , -2 , -1 ) : 
+            for dY  in  range (  -0 , -2 , -1 ) : 
                #mc.postToChat("dY: %f " % ( dY  ) )
                for dX in  range ( -2 , 102 + prosirenje * 2 ) :
                   #mc.postToChat("dX: %f " % ( dX  ) )
