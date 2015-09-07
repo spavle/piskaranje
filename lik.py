@@ -238,4 +238,10 @@ if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       crtaj_bitmap ( [ pozicija[0] , pozicija [1] , pozicija [2] ],  gdjeGledam ()  , lik  , nr ,  nr/2 ) 
    """
    
-   crtaj_kvadar ( gdjeSam () , [ 2 , -1 , 2 ]  , [ 6 , 2 , 4  ] , gdjeGledam () , 1 , 2 )
+   #crtaj_kvadar ( gdjeSam () , [ 2 , -1 , 2 ]  , [ 6 , 2 , 4  ] , gdjeGledam () , 1 , 2 )
+   
+   for nr in range ( 9 ) :
+      pomak = nr * 15
+      crtaj_kvadar ( gdjeSam () , [ 1 + pomak , -5 , 0 ]  , [ 11 + pomak , 5 , 0  ] , gdjeGledam () , 1 , 0 )
+      crtaj_kvadar ( gdjeSam () , [ 2 + pomak , -4 , 0 ]  , [ 10 + pomak , 4 , 0  ] , gdjeGledam () , 60 , 0 )
+      crtaj_kvadar ( gdjeSam () , [ 6 + pomak , 0 , 0 ]  , [ 6 + pomak , 0 , 0  ] , gdjeGledam () , WATER.id , 0 )
