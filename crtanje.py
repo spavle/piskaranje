@@ -264,7 +264,7 @@ def crtaj_pec   ( origin , poc , kraj , smjer , rel_smjer  = "meni" , blok_id = 
  
    crtaj_ljestve  ( origin , poc , kraj , smjer , rel_smjer   , blok_id    )
 
-def crtaj_krevet  ( origin , poc  , smjer , rel_smjer  = "meni" , blok_id = 26    ) :
+def crtaj_krevet  ( origin , noge , glava  , smjer , rel_smjer = 0,   blok_id = 26  , blok_dv = 0  ) :
    """
    funkcija za crtanje stepenica
    1. parametar lista sa koordinatama ( X , Y , Z )
@@ -276,27 +276,26 @@ def crtaj_krevet  ( origin , poc  , smjer , rel_smjer  = "meni" , blok_id = 26  
    rel_smjer 0 - lijevo 1 - desno 2 - odmene 3 - meni
    
    krevet  imaju zadano u Minecraftu
-   0x0	Head facing South
-   0x1	Head facing West
-   0x2	Head facing North
-   0x3	Head facing East
+   dv = 0 za nizi dio
+   dv = 8 za jastuk
    """
-   
    lista_smjera = [   "meni",  "odmene"      ,"lijevo"     , "desno" ] # transformacija opisa u vrijednost
    pomoc = lista_smjera.index ( rel_smjer )
    rel_smjer = pomoc  
    
    tablica_smjera = {}     # definira se tablica prevoda
-   tablica_smjera [ ( 1 , 0  ) ] = (  3 , 2 , 1 , 0 ) # gledam north
-   tablica_smjera [ ( -1 , 0 ) ] = (  0 , 3 , 0 , 1  ) # gledam south
-   tablica_smjera [ ( 0 , 1 ) ] = ( 1 , 0 , 2 , 3 )  # gledam east
-   tablica_smjera [ ( 0 , -1 ) ]= ( 3 , 1 , 3 , 2  )  # gledam weast
+   tablica_smjera [ ( 1 , 0  ) ] = (  1 , 3 , 2 , 0 ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = (  3 , 1 , 0 , 2  ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 2 , 0 , 3 , 1 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 0 , 2  , 1 , 3  )  # gledam weast
    
    buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
-   blok_dv =  buff [ rel_smjer ] + 2
-   od = rel2abs ( origin , poc , smjer )
-   mc.setBlock ( od ,  blok_id , blok_dv )
-   mc.setBlock ( ( od [0] +1 ,od [1],od [2]) ,  blok_id , blok_dv + 8 )
+   blok_dv =  buff [ rel_smjer ]
+   
+   od = rel2abs ( origin , noge , smjer )
+   mc.setBlock (  od , blok_id , blok_dv )   #doljnji dio vrata
+   do = rel2abs ( origin , glava , smjer )
+   mc.setBlock (  do , blok_id , blok_dv + 8 )   #doljnji dio vrata
    return
    
    
