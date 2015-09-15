@@ -97,12 +97,86 @@ def crtaj_bitmap ( inOrigin ,  smjer , inBitmap , pomakX = 0 , pomakZ = 0) :
    return
 
 
+def crtaj_vrata ( origin , polozaj , smjer , rel_smjer = 0 , blok_id = 195     ) :
+   """
+   funkcija za crtanje vrata
+   1. parametar lista sa koordinatama ( X , Z , Y )
+   2. parametar lista sa koordinatama ( X , Z , Y )
+   3. smjer crtanja
+   4. koji blok 
+   5. gdje su okrenute 
+
+   gore_dolje = 4 stepenice su "naopako"
+   rel_smjer 0 - premameni 1 - odmene 2 - lijevo 3 - desno
+
+   
+   stepenice imaju zadano u Minecraftu
+   0: Facing west
+   1: Facing north
+   2: Facing east
+   3: Facing south
+   """
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = ( 0 , 2 , 1 , 3 ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = ( 2 , 0 , 3 , 1 ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 1 , 3 , 2 , 0 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 3 , 1 , 0 , 2 )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ]
+   od = rel2abs ( origin , polozaj , smjer )
+   mc.setBlock (  od , blok_id , blok_dv )
+   do = ( od [ 0 ] , od [ 1 ] +1  , od [ 2 ]  )
+   mc.setBlock (  do , blok_id , 8 )
+   
+   
+   
+def crtaj_stepenice ( origin , poc , kraj , smjer , blok_id = 53 , rel_smjer = 0  , gore_dolje = 0  ) :
+   """
+   funkcija za crtanje tocke
+   1. parametar lista sa koordinatama ( X , Z , Y )
+   2. parametar lista sa koordinatama ( X , Z , Y )
+   3. parametar lista sa koordinatama ( X , Z , Y )
+   4. smjer crtanja
+   5. koji blok 
+   6. gdje su okrenute 
+   7. naopravo ili naopako
+  
+   
+   gore_dolje = 4 stepenice su "naopako"
+   rel_smjer 0 - lijevo 1 - desno 2 - odmene 3 - prema
+   
+   
+   stepenice imaju zadano u Minecraftu
+   0: East
+   1: West
+   2: South
+   3: North
+   """
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = ( 2 , 3 , 1 , 0 ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = ( 3 , 2 , 0 , 1 ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 1 , 0 , 3 , 2 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 0 , 1 , 2 , 3 )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ]
+   if gore_dolje != 0 :
+      blok_dv +=  4  # okreni naopako ako treba
+   od = rel2abs ( origin , poc , smjer )
+   do = rel2abs ( origin , kraj , smjer )
+   mc.setBlocks ( od , do , blok_id , blok_dv )
+   return
+
+   
 def crtaj_kvadar ( origin , poc  , kraj , smjer , blok_id , blok_dv = 0 ) :
    """
    funkcija za crtanje tocke
-   1. parametar lista sa koordinatama ( X , Y , Z )
-   2. parametar lista sa koordinatama ( X , Y , Z )
-   3. parametar lista sa koordinatama ( X , Y , Z )
+   1. parametar lista sa koordinatama ( X , Z , Y )
+   2. parametar lista sa koordinatama ( X , Z , Y )
+   3. parametar lista sa koordinatama ( X , Z , Y )
    4. smjer crtanja
    3. koji blok 
    4. koja varijanta bloka DFAULT osnovni oblik
