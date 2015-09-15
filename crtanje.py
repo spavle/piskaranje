@@ -130,11 +130,44 @@ def crtaj_vrata ( origin , polozaj , smjer , rel_smjer = 0 , blok_id = 195     )
    do = ( od [ 0 ] , od [ 1 ] +1  , od [ 2 ]  )
    mc.setBlock (  do , blok_id , 8 )
    
+
+def crtaj_deblo ( origin , poc , kraj , smjer , blok_id = 53 , podtip = 0 , rel_smjer = 0   ) :
+   """
+   funkcija za crtanje debla
+   1. parametar lista sa koordinatama ( X , Z , Y )
+   2. parametar lista sa koordinatama ( X , Z , Y )
+   3. parametar lista sa koordinatama ( X , Z , Y )
+   4. smjer crtanja
+   5. koji blok ( 17 ili 162) prva ili druga grupa 
+   6. koji tip debla
+   6. gdje su okrenute 
+ 
+   rel_smjer 0 - gore/dolje 1 - lijev/desno 2 - napred/nazad
+  
+   debla imaju zadano u Minecraftu
+    3. i 4 bit
+    0:    Facing Up/Down
+    1:    Facing East/West
+    2:    Facing North/South
+    3:    Only bark
+   """   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = (  0 , 8 , 4 ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = (  0 , 8 , 4 ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 0 , 4 , 8 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 0 , 4 , 8 )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ] + podtip
+ 
+   od = rel2abs ( origin , poc , smjer )
+   do = rel2abs ( origin , kraj , smjer )
+   mc.setBlocks ( od , do , blok_id , blok_dv )
    
    
 def crtaj_stepenice ( origin , poc , kraj , smjer , blok_id = 53 , rel_smjer = 0  , gore_dolje = 0  ) :
    """
-   funkcija za crtanje tocke
+   funkcija za crtanje stepenica
    1. parametar lista sa koordinatama ( X , Z , Y )
    2. parametar lista sa koordinatama ( X , Z , Y )
    3. parametar lista sa koordinatama ( X , Z , Y )
