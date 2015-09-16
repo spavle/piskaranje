@@ -97,7 +97,42 @@ def crtaj_bitmap ( inOrigin ,  smjer , inBitmap , pomakX = 0 , pomakZ = 0) :
    return
 
 
-def crtaj_vrata ( origin , polozaj , smjer , rel_smjer  , blok_id = 64     ) :
+def crtaj_klopku   ( origin , polozaj , smjer , rel_smjer  , blok_id = 96   ) :
+   """
+   funkcija za trapdora
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   3. apsolutni smjer crtanja
+   4. relativni smjer crtanja "meni"  , "odmene" , "lijevo" , "desno"
+   5. tip vrata koja se crtaju 
+
+   na kraju rel_smjer 0 - premameni 1 - odmene 2 - lijevo 3 - desno
+   kvaka moze biti kvaka = "lijevo" ili "desno"
+   
+   vrata imaju zadano u Minecraftu
+   0: Facing west
+   1: Facing north
+   2: Facing east
+   3: Facing south
+   """
+   
+   lista_smjera = [ "meni"  , "odmene" , "lijevo" , "desno" ] # transformacija opisa u vrijednost
+   pomoc = lista_smjera.index ( rel_smjer )
+   rel_smjer = pomoc
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = ( 0 , 2 , 1 , 3 ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = ( 2 , 0 , 3 , 1 ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 1 , 3 , 2 , 0 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 3 , 1 , 0 , 2 )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ]
+   od = rel2abs ( origin , polozaj , smjer )
+   mc.setBlock (  od , blok_id , blok_dv )   #stavi trapdor
+   return
+   
+def crtaj_vrata ( origin , polozaj , smjer , rel_smjer  , blok_id = 64  , kvaka = "lijevo"  ) :
    """
    funkcija za crtanje vrata
    1. parametar lista sa koordinatama ( X , Y , Z )
@@ -107,6 +142,7 @@ def crtaj_vrata ( origin , polozaj , smjer , rel_smjer  , blok_id = 64     ) :
    5. tip vrata koja se crtaju 
 
    na kraju rel_smjer 0 - premameni 1 - odmene 2 - lijevo 3 - desno
+   kvaka moze biti kvaka = "lijevo" ili "desno"
    
    vrata imaju zadano u Minecraftu
    0: Facing west
@@ -130,7 +166,10 @@ def crtaj_vrata ( origin , polozaj , smjer , rel_smjer  , blok_id = 64     ) :
    od = rel2abs ( origin , polozaj , smjer )
    mc.setBlock (  od , blok_id , blok_dv )   #doljnji dio vrata
    do = ( od [ 0 ] , od [ 1 ] +1  , od [ 2 ]  )
-   mc.setBlock (  do , blok_id , 8 )         #gornji dio vrata
+   blok_dv = 8
+   if kvaka == "desno" :
+      blok_dv = 8
+   mc.setBlock (  do , blok_id , blok_dv )         #gornji dio vrata
    
    
 
