@@ -217,7 +217,7 @@ def crtaj_baklju ( origin , poc ,  smjer ,  rel_smjer   ) :
    4. smjer crtanja apsolutni
    6. gdje su okrenute 
 
-   rel_smjer 0 - desno 1 - lijevo 2 - prema 3 - odmene  4 - gore
+   rel_smjer 0 - desno 1 - lijevo 2 - prema 3 - odmene  4 - gore  pokazuje smjer u kojem baklja "gleda"
 
    stepenice imaju zadano u Minecraftu
    1: East
