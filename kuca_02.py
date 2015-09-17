@@ -1,4 +1,5 @@
 # surival house 7 x 7 from http://www.minecraftforum.net/forums/minecraft-discussion/survival-mode/290440-minecraft-survival-starter-houses
+# velika brvnara
 
 #definicija objekta i poziv rutine za crtanje
 from crtanje import *		#tu je funkcija koju zovem
