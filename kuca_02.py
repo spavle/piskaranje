@@ -1,4 +1,5 @@
 # surival house 7 x 7 from http://www.minecraftforum.net/forums/minecraft-discussion/survival-mode/290440-minecraft-survival-starter-houses
+
 #definicija objekta i poziv rutine za crtanje
 from crtanje import *		#tu je funkcija koju zovem
 from crtanje2 import *		#tu je funkcija koju zovem
@@ -10,43 +11,13 @@ orMj = gdjeSam ()
 orSm = gdjeGledam ()
 
 # reset
-crtaj_kvadar ( orMj , [  1 , -5 , -2 ]  , [ 11 , 6 , 0  ] , orSm , 2 , 0 ) # zemlja
-crtaj_kvadar ( orMj , [ 1 , -5 , 0 ]  , [ 11 , 6 , 9  ] , orSm , 0 , 0 ) #zrak
+crtaj_kvadar ( orMj , [  1 , -5 , -2 ]  , [ 12 , 5 , 0  ] , orSm , 2 , 0 ) # zemlja
+crtaj_kvadar ( orMj , [ 1 , -5 , 0 ]  , [ 12 , 5 , 5  ] , orSm , 0 , 0 ) #zrak
 
 # bazni oak-wood volumen
-crtaj_kvadar ( orMj , [ 5 , -4 , -1 ]  , [ 9 , 3 , 2  ] , orSm , 5 , 0 ) # blok oak wood
-crtaj_kvadar ( orMj , [ 4 , -3 , 0 ]  , [ 8 , 2 , 1  ] , orSm , 0 , 0 ) # praznina
+crtaj_kvadar ( orMj , [ 3 , -4 , -1 ]  , [ 11 , 4 , 1  ] , orSm , 5 , 0 ) # blok oak wood
+crtaj_kvadar ( orMj , [ 4 , -3 , 0 ]  , [ 10 , 3 , 1  ] , orSm , 0 , 0 ) # praznina
 
-# vrata
-crtaj_vrata ( orMj , [ 5 , -1 , 0 ] , orSm , "meni"  , blok_id = 64     ) 
-
-#prozori
-crtaj_kvadar ( orMj , [ 5 , 1 , 1 ]  , [ 5 , 1 , 1  ] , orSm , 102 , 0 ) #staklo za prozor prednji desni
-crtaj_kvadar ( orMj , [ 6 , -3 , 1 ]  , [ 9 , -3 , 1  ] , orSm , 102 , 0 ) #staklo za prozor lijevi veliki
-crtaj_kvadar ( orMj , [ 6 , 3 , 1 ]  , [ 9 , 3 , 1  ] , orSm , 102 , 0 ) #staklo za prozor desni veliki
-crtaj_kvadar ( orMj , [ 11 , -2 , 1 ]  , [ 11 , -1 , 1  ] , orSm , 102 , 0 ) #staklo za prozor zadnji lijevi veliki
-crtaj_kvadar ( orMj , [ 11 , 2 , 1 ]  , [ 11 , 1 , 1  ] , orSm , 102 , 0 ) #staklo za prozor zadnji desni veliki
-
-# oprema iznutra - baklje
-crtaj_baklju ( orMj , ( 4 , -2 , 1 ) ,  orSm ,  "meni"   ) # torch na ulazu izvana lijeva
-crtaj_baklju ( orMj , ( 4 , 0 , 1 ) ,  orSm ,  "meni"   ) # torch na ulazu izvana desna
-crtaj_baklju ( orMj , ( 6 , -2 , 2 ) ,  orSm ,  "desno"   ) # torch  iznutra lijeva
-crtaj_baklju ( orMj , ( 8 , -2 , 2 ) ,  orSm ,  "desno"   ) # torch  iznutra lijeva
-crtaj_baklju ( orMj , ( 7 , 2 , 2 ) ,  orSm ,  "lijevo"   ) # torch  iznutra desna
-crtaj_baklju ( orMj , ( 7 , 2 , 2 ) ,  orSm ,  "lijevo"   ) # torch  iznutra desna
-
-# oprema iznutra - banak
-crtaj_banak ( orMj , ( 8 , -2 , 0 ) , ( 8 , -2 , 0 ) , orSm ) 
-
-# oprema iznutra - kutije
-crtaj_kutiju ( orMj  , ( 6 , -2 , 0 ) , ( 7 , -2 , 0 ) , orSm , "desno")  #lijeva kutija 
-crtaj_kutiju ( orMj  , ( 6 , 2 , 0 ) , ( 6 , 2 , 0 ) , orSm , "odmene")  #desna kutija
-
-# oprema iznutra - peci
-crtaj_pec ( orMj  , ( 6 , 1 , 0 ) , ( 6 , 1 , 0 ) , orSm , "odmene")  #bliza pec 
- 
-
-"""
 # ukrasne crte
 crtaj_kvadar ( orMj , [ 3 , -4 , 0 ]  , [ 11 , 4 , 0  ] , orSm , 4 , 0 ) # blok coblestonea
 crtaj_kvadar ( orMj , [ 4 , -3 , 0 ]  , [ 10 , 3 , 0  ] , orSm , 0 , 0 ) # praznina
@@ -100,6 +71,6 @@ for br in range ( 0 , 3 ) :
 
 crtaj_kvadar ( orMj , [ 5 , -2 , 4 ]  , [ 9 , 2 , 4  ] , orSm , 126 , 8 ) # slabovi za zatvoriti rupu u sredini krova   wooden Upper Oak Wood Slab
 
-"""
+
 
 

@@ -1,11 +1,11 @@
-#ispred lika cisti pravokutnik  3x5 i dugacak 100 i to samo blokove iz liste poplocen glovestone
+#ispred lika cisti pravokutnik  i to samo blokove iz liste pod i strop QUARTZ & QUARTZ - HARDCODED & LOSHE
 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def tunel ():
    """
-   iispred lika cisti pravokutnik  3x5 i dugacak 100 i to samo blokove iz liste poplocen glovestone
+   ispred lika cisti pravokutnik  i to samo blokove iz liste pod i strop QUARTZ & QUARTZ
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()		
@@ -43,6 +43,7 @@ def tunel ():
                if  ( dY == -1 ) or ( dY == 7) :
                   if (abs (dX) % 3) == 0  and ( abs (dZ) % 3 ) == 0 :
                      mc.setBlock( gdjeX , gdjeY , gdjeZ , 89 )		#u podlogu obavezno stavi glowstone
+                     #mc.setBlock(gdjeX , gdjeY , gdjeZ , 155 , 0)			#postavi blok
                   else :
                      mc.setBlock(gdjeX , gdjeY , gdjeZ , 155 , 1)			#postavi blok
                

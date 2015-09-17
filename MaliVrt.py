@@ -1,4 +1,4 @@
-# pravi stazu od zlatnih blokova dugacku 2000 siroku 3 - obsolete
+# NE RADI - ERROR  pravi stazu od zlatnih blokova dugacku 2000 siroku 3
 
 from mc import * # ajmo probati ovaj import
 

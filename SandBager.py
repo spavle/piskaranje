@@ -1,6 +1,5 @@
 #ispred lika chisti pjesak 3x3x20
 
-
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 

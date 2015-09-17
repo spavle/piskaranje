@@ -1,4 +1,4 @@
-
+# crta prugu duzine cca 256 ( velicina minecraft chunka ???? )  - SIROVO I NEDORADJENO
 import time 
 from mc import * # ajmo probati ovaj import
 
@@ -18,6 +18,7 @@ ubij lavu i vodu
 
 zaMaknuti = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_STATIONARY.id , LAVA_FLOWING.id , GRAVEL.id , SAND.id]
 
+duzinaPruge = 260
 
 #smjer gledanja radi preglednosti spremimo u "vektor""
 Vx=0												#pocetne vrijednosti su nule
@@ -30,36 +31,37 @@ else:
 mc.postToChat("S T A R T !!!! !!!!! "  )
 #crtanje
 if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-   for dX in range ( 0 , 600 ) :
+   for dX in range ( 0 , duzinaPruge ) :
       for dY in range ( -2 , 5 )	:
          for dZ in range ( -3 , 4 )  :
             gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
             gdjeY=radnaPozicija.y + dY						# pomak po y
             gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
             if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknuti :
-               mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 2 )			#postavi blok	
+               mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 2 )		# "Krpa se granitom"
+               #postavi blok	
       mc.postToChat("dX: %f dZ: %f " % ( dX , dZ  ) )               
 
 mc.postToChat("okolo KRAJJJJJ !!!!! "  )
 time.sleep ( 10 )           
 
-"""
+"""t
 napravi tunel i podlogu
 """
 if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-   for dX in range ( 1 , 510 ) :
+   for dX in range ( 1 , duzinaPruge ) :
       for dY in range ( -1 , 0 )	:
          for dZ in range ( -1 , 2 )  :
             gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
             gdjeY=radnaPozicija.y + dY						# pomak po y
             gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-            mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 2 )			#postavi blok
+            mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 4 )			#postavi blok podloge - polished diorite
 
 mc.postToChat("Podloga KRAJJJJJ !!!!! "  )
 time.sleep ( 10 )                      	
 
 if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-   for dX in range ( 1 , 510 ) :
+   for dX in range ( 1 , duzinaPruge ) :
       for dZ in range ( -1 , 2 )	:
          for dY in range ( 0, 3 )  :
             gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
@@ -72,7 +74,7 @@ mc.postToChat("Rupa KRAJJJJJ !!!!! "  )
 time.sleep ( 10 )             
             
 if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-   for dX in range ( 1 , 510 , 5 ) :
+   for dX in range ( 1 , duzinaPruge , 5 ) :
       for dZ in  ( -1 , 1 )	:
          for dY in range ( -1 , 0 )  :
             gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
@@ -110,10 +112,10 @@ gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
 mc.setBlock(gdjeX , gdjeY , gdjeZ , 27 , korektor)			#postavi blok
 
 """
-nacrtaj 185 elemenata
+nacrtaj 36 elemenata
 """
 
-for nesto in range (45):
+for nesto in range ( int (round ( duzinaPruge / 11 ) - 2) ):
    for br in range ( 8 ) :
       dX += 1
       gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
@@ -140,7 +142,7 @@ for nesto in range (45):
    gdjeY=radnaPozicija.y + dY						# pomak po y
    gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
    mc.setBlock(gdjeX , gdjeY , gdjeZ , 28 , korektor)			#postavi blok
-   time.sleep ( 1 )
+   time.sleep ( 0.3 )
    mc.postToChat("dX: %f dZ: %f " % ( dX , dZ  ) )
    
 for br in range ( 8 ) :

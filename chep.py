@@ -6,6 +6,7 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 def chep ():
    """
    funkcija za crtanje chepa od pjeska dimenzija 9x3x3 neposredno ispred lika
+   crta chep samo gdje je zrak
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()		

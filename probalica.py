@@ -1,11 +1,11 @@
-#ispred lika radi chep 3x3 i dugacak 9
+#neradi
 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def chep ():
    """
-   funkcija za crtanje chepa od pjeska dimenzija 9x3x3 neposredno ispred lika
+   
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()		
@@ -29,7 +29,7 @@ def chep ():
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                mc.postToChat("vX: %f vZ: %f " % ( Vx , Vz  ) )
-               mc.spawnEntity(MOB, gdjeX +2 , gdjeY , gdjeZ  , 0 )			#postavi blok
+               mc.spawnEntity(MOB, gdjeX +2 , gdjeY , gdjeZ  , dX )			#postavi blok
                mc.postToChat("gdjeX: %f gdjeY: %f gdjeZ: %f " % ( gdjeX , gdjeY , gdjeZ  ) )
    #mc.postToChat("X: %f Y: %f Z: %f " % ( radnaPozicija.x , radnaPozicija.y , radnaPozicija.z  ) )
    return 1

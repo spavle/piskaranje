@@ -1,3 +1,5 @@
+# LAME TOOL
+
 #definicija objekta i poziv rutine za crtanje
 from crtanje import *		#tu je funkcija koju zovem
 from mc import *			

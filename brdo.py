@@ -1,11 +1,11 @@
-#ispred lika radi chep 3x3 i dugacak 9
+#ispred lika radi chep zemlje 3x3 i dugacak 9
 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def chep ():
    """
-   funkcija za crtanje chepa od pjeska dimenzija 9x3x3 neposredno ispred lika
+   funkcija za crtanje chepa od zemlje dimenzija 9x3x3 neposredno ispred lika
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()		
@@ -22,9 +22,9 @@ def chep ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -10 , 20 ) :    		# prodji chep
-         for dY  in range( 1 , 42 ) : 
-            for dX in  range( 1 , 45 ) :
+      for dZ in  range( -1 , 1 ) :    		# prodji chep
+         for dY  in range( 1 , 4 ) : 
+            for dX in  range( 1 , 10 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z

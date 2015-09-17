@@ -1,4 +1,4 @@
-#ispred lika pravi stepenice prema dolje do badrock i stavlja baklje
+#ispred lika pravi stepenice prema dolje za postepeni silazak BLOCK-SLATE umjesto stepenica do badrock i stavlja baklje
 
 
 from mc import * #import api-ja
@@ -6,7 +6,8 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def postepeniSilazak ():
    """
-   ispred lika pravi stepenice prema dolje do badrock i stavlja baklje
+   ispred lika pravi stepenice prema dolje za postepeni silazak BLOCK-SLATE umjesto stepenica do badrock i stavlja baklje
+   okolo uklanja opasne blokove
    """
    #priprema
    zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanje sve poremete

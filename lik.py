@@ -1,4 +1,4 @@
-#definicija objekta i poziv rutine za crtanje
+#nekakve bitmape ??????
 from crtanje import *		#tu je funkcija koju zovem
 from crtanje2 import *		#tu je funkcija koju zovem
 from mc import *			

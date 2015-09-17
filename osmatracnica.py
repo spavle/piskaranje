@@ -1,4 +1,4 @@
-# crta osmatracnicu
+# crta osmatracnicu ispred lika, radi sirovo i primitivno
 
 from mc import * #import api-ja
 from crtaj_vrata import *

@@ -1,3 +1,4 @@
+# Nekakva kuca - ruzna !!!
 #definicija objekta i poziv rutine za crtanje
 from crtanje import *		#tu je funkcija koju zovem
 from crtanje2 import *		#tu je funkcija koju zovem
@@ -20,10 +21,10 @@ crtaj_kvadar ( gdjeSam () , [ 1 , 1 , 1 ]  , [ 10 , 10 , 5  ] , gdjeGledam () , 
 crtaj_kvadar ( gdjeSam () , [ 1 , 1 , 1 ]  , [ 4 , 4 , 5  ] , gdjeGledam () , 0 , 0 ) #izrezi terasu
 
 for br in range (2,5) :
-   crtaj_stepenice ( gdjeSam () , [ 0 , br  , 0 ]  , [ 0 , br  , 0  ] , gdjeGledam () , 109 , 3 ) # ulazne stepenice , stone brick east 0
+   crtaj_stepenice ( gdjeSam () , [ 0 , br  , 0 ]  , [ 0 , br  , 0  ] , gdjeGledam () , 109 , "meni" ) # ulazne stepenice , stone brick east 0
 
 #crtaj_kvadar ( gdjeSam () , [ 5 , 3 , 1 ]  , [ 5 , 3 , 2  ] , gdjeGledam () , 0 , 0 ) #rupa za vrata
-crtaj_vrata ( gdjeSam () , [ 5 , 3 , 1 ]  ,  gdjeGledam ()  , 0 , 64  ) #doljnja vrata doljnji dio
+crtaj_vrata ( gdjeSam () , [ 5 , 3 , 1 ]  ,  gdjeGledam ()  , "meni" , 64  ) #doljnja vrata doljnji dio
 
 
 
@@ -53,7 +54,7 @@ crtaj_kvadar ( gdjeSam () , [ 6 , 1 , 6 ]  , [ 10 , 10 , 10  ] , gdjeGledam () ,
 crtaj_kvadar ( gdjeSam () , [ 7 , 2 , 6 ]  , [ 9 , 9 , 9  ] , gdjeGledam () , 0 , 0 ) #izrezi sobicu
 
 #crtaj_kvadar ( gdjeSam () , [ 6 , 6 , 6 ]  , [ 6 , 6 , 7  ] , gdjeGledam () , 0 , 0 ) #rupa za vrata
-crtaj_vrata ( gdjeSam () , [ 6 , 6 , 6 ]  , gdjeGledam () , 0 , 64  ) #gornja vrata doljnji dio
+crtaj_vrata ( gdjeSam () , [ 6 , 6 , 6 ]  , gdjeGledam () , "meni" , 64  ) #gornja vrata doljnji dio
 #crtaj_kvadar ( gdjeSam () , [ 6 , 6 , 7 ]  , [ 6 , 6 ,7  ] , gdjeGledam () , 64 , 2 + 8 ) #gornja vrata gornji dio
 
 crtaj_kvadar ( gdjeSam () , [ 6 , 8 , 7 ]  , [ 6 , 9 , 7  ] , gdjeGledam () , 0 , 0 ) #rupa za prozor prednji dupli
@@ -67,7 +68,7 @@ crtaj_kvadar ( gdjeSam () , [ 6 , 2 , 7 ]  , [ 6 , 3 , 7  ] , gdjeGledam () , 10
 crtaj_kvadar ( gdjeSam () , [ 9 , 2 , 5 ]  , [ 9 , 9 , 5  ] , gdjeGledam () , 0 , 0 ) #izrezi prolaz
 
 for br in range ( 1 , 6 ) :
-   crtaj_stepenice ( gdjeSam () , [ 9 , br + 3 , br ]  , [ 9 , br + 3 , br  ] , gdjeGledam () , 53 , 0 )  # drvene stepenice gledaju na jug 2
+   crtaj_stepenice ( gdjeSam () , [ 9 , br + 3 , br ]  , [ 9 , br + 3 , br  ] , gdjeGledam () , 53 , "lijevo" )  # drvene stepenice gledaju na jug 2
 
 crtaj_kvadar ( gdjeSam () , [ 9 , 9 , 5 ]  , [ 9 , 9 , 5  ] , gdjeGledam () , 5 , 0 ) # podest iza stepenica
 

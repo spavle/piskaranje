@@ -1,4 +1,4 @@
-# crta malu kucu
+# NE RADI ERROR crta malu kucu
 
 from mc import * #import api-ja
 from crtaj_vrata import *

@@ -1,4 +1,4 @@
-#crta vrata na zadanim koordinatama zadane vrste
+#crta vrata na zadanim koordinatama zadane vrste - OBSOLETE
 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom

@@ -1,15 +1,14 @@
-#ispod lika cisti pravokutnik  10x10 i dubok 5 i to samo blokove iz liste 
+#ispred lika cisti pravokutnik  3x4 i dugacak 9 i to samo blokove iz liste LOSHE !!!! BUGS
 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def Plato ():
+def Kopanje ():
    """
-   okolo i ispod lika cisti pravokutnik  100x100 i dubok 5 i to samo blokove iz liste
-   u prosirenju eliminira opasne blokove
+   ispod lika cisti pravokutnik  50 x 100  i dubok 3 i to samo blokove iz liste zaMaknuti
    """
-   zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
-   zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanje sve poremete
+   zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id]
+   zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id]
    #gdje sam
    radnaPozicija = mc.player.getPos()		
    #kamo gledam
@@ -25,11 +24,11 @@ def Plato ():
 
    # makni lavu i vodu
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -15 , 15 ) :    		# prodji cijeli pravokutnik
+      for dZ in  range( -5 , 105 ) :    		# prodji cijeli pravokutnik
          mc.postToChat(" ---- dZ: %f " % ( dZ  ) )
-         for dY  in  range (  2 , -6 , -1 ) : 
+         for dY  in  range (  -1 , -6 , -1 ) : 
             #mc.postToChat("dY: %f " % ( dY  ) )
-            for dX in  range ( -15 , 15  ) :
+            for dX in  range ( -5 , 65  ) :
                #mc.postToChat("dX: %f " % ( dX  ) )
                if ( dZ != 0 ) or ( dX != 0 ) : 
                   gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
@@ -40,11 +39,11 @@ def Plato ():
    #crtanje
    
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -10 , 10 ) :    		# prodji cijeli pravokutnik
+      for dZ in  range( 0 , 100 ) :    		# prodji cijeli pravokutnik
          mc.postToChat("dZ: %f " % ( dZ  ) )
          for dY  in  range (  1 , -5 , -1 ) : 
             #mc.postToChat("dY: %f " % ( dY  ) )
-            for dX in  range ( -10 , 10  ) :
+            for dX in  range ( 0 , 60  ) :
                #mc.postToChat("dX: %f " % ( dX  ) )
                if ( dZ != 0 ) or ( dX != 0 ) : 
                   gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
@@ -60,4 +59,4 @@ def Plato ():
 
    
 
-Plato ()
+Kopanje ()

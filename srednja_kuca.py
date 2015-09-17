@@ -1,4 +1,4 @@
-# crta srednju kucu
+# crta srednju kucu sa jednim vratima
 
 
 from mc import * #import api-ja

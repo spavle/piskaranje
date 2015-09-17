@@ -5,7 +5,7 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def piramida ():
    """
-   funkcija za crtanje chepa od pjeska dimenzija 9x3x3 neposredno ispred lika
+   funkcija za crtanje piramide neposredno ispod lika do BEDROCK-a
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()	

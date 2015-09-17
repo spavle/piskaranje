@@ -1,4 +1,4 @@
-#ispred lika cisti trapezoidni lik i to samo blokove iz liste - NEDORADJENO HARDCODED LOSHE
+#ispred lika cisti trapezoidni lik i to samo blokove iz liste OBSOLETE
 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
@@ -8,7 +8,7 @@ def Kanal ():
    ispred lika cisti trapezoidni lik i to samo blokove iz liste
    """
    zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
-   zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
+   zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanje sve poremete
    #gdje sam
    radnaPozicija = mc.player.getPos()		
    #kamo gledam
@@ -24,7 +24,7 @@ def Kanal ():
    stepenice_marker = 1
    udaljenost = 1 # ovdje pise koliko je daleko
    dZ = 0   # ne provjeravamo po lijevo desno
-   while ( stepenice_marker == 1 ) :      #trazi se 156 QUARTZ
+   while ( stepenice_marker == 1 ) :      #trazi se 128 sandstone
       
       gdjeX=radnaPozicija.x + Vx*( + udaljenost ) + Vz*dZ    		# pomak po x
       gdjeY=radnaPozicija.y + ( - udaljenost )						# pomak po y
@@ -71,10 +71,10 @@ def Kanal ():
             #mc.postToChat("Chischenje dZ: %f " % ( dZ  ) )
             for dY  in  range (  -0 , -2 , -1 ) : 
                #mc.postToChat("dY: %f " % ( dY  ) )
-               for dX in  range ( -2 , 122 + prosirenje * 2 ) :
+               for dX in  range ( -2 , 422 + prosirenje * 2 ) :
                   #mc.postToChat("dX: %f " % ( dX  ) )
                   if ( dZ != 0 ) or ( dX != 0 ) : 
-                     if  1 == 1 : #( dX < 10 ) or ( dX > (  102 + prosirenje * 2 - 12 )  ) or ( dZ < ( -4 - prosirenje + 12  ) ) or ( dZ > ( 5 + prosirenje - 12 ) ) : # ne kontroliraj "praznu sredinu" obrnute piramide
+                     if ( dX < 10 ) or ( dX > (  102 + prosirenje * 2 - 12 )  ) or ( dZ < ( -4 - prosirenje + 12  ) ) or ( dZ > ( 5 + prosirenje - 12 ) ) : # ne kontroliraj "praznu sredinu" obrnute piramide
                         gdjeX=radnaPozicija.x + Vx* ( dX + udaljenost ) +  + Vz*dZ    		# pomak po x
                         gdjeY=radnaPozicija.y + dY	- udaljenost					# pomak po y
                         gdjeZ=radnaPozicija.z + Vx*dZ + Vz*( dX + udaljenost )			# pomak po Z
@@ -91,7 +91,7 @@ def Kanal ():
             #mc.postToChat("dZ: %f " % ( dZ  ) )
             for dY  in  range (  0 , 1 ) : 
                #mc.postToChat("dY: %f " % ( dY  ) )
-               for dX in  range ( 0 , 120 + prosirenje * 2 ) :
+               for dX in  range ( 0 , 420 + prosirenje * 2 ) :
                   #mc.postToChat("dX: %f " % ( dX  ) )
                   if ( dZ != 0 ) or ( dX != 0 ) : 
                      gdjeX=radnaPozicija.x + Vx* ( dX + udaljenost ) +  + Vz*dZ    		# pomak po x
@@ -108,7 +108,6 @@ def Kanal ():
                      
                      mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR.id)			#postavi blok
                      """
-                     
       mc.postToChat("Kopanje dZ: %f udaljenost : %f" % ( dZ , udaljenost ) )
       prosirenje += 1
       udaljenost -= 1

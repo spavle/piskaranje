@@ -1,3 +1,4 @@
+# teleport eksperiment
 import time 
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom

@@ -1,4 +1,4 @@
-# teleportira 50 blokova naprijed
+# teleportira 100 blokova "negdje"
 
 from mc import * # ajmo probati ovaj import
 import time

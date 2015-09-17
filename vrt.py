@@ -5,7 +5,7 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def vrt ():
    """
-   funkcija za crtanje chepa od pjeska dimenzija 9x3x3 neposredno ispred lika
+   funkcija za crtanje vrta neposredno ispred lika
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()		
@@ -42,7 +42,7 @@ def vrt ():
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-               mc.setBlock(gdjeX , gdjeY , gdjeZ , 9)			#postavi blok voda
+               mc.setBlock(gdjeX , gdjeY , gdjeZ , 9)			#postavi blok vode
 
    return 1
    
