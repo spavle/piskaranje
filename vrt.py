@@ -36,6 +36,13 @@ def vrt ():
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                mc.setBlock(gdjeX , gdjeY , gdjeZ , 60)			#postavi blok farmlanda
+               sto = 59                                     # zasadi ponesto
+               if ( int ( gdjeX ) % 2 ) == 0 :
+                  sto = 142
+               if ( int ( gdjeX ) % 4 ) == 0 :
+                  sto = 141
+               mc.setBlock(gdjeX , gdjeY+1 , gdjeZ , sto , 2 )			#postavi blok wheata
+               
       for dZ in  range ( 0 , 1 ) :    		# prodji chep
          for dY  in  range ( 0,1 ) : 
             for dX in range ( 6 , 7  ) :
@@ -43,6 +50,8 @@ def vrt ():
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                mc.setBlock(gdjeX , gdjeY , gdjeZ , 9)			#postavi blok vode
+               mc.setBlock(gdjeX , gdjeY+1 , gdjeZ , 0)			#postavi blok zraka
+      
 
    return 1
    

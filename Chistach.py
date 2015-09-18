@@ -23,13 +23,13 @@ def chistach ():
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dZ in  range( -1 , 2 ) :    		# prodji cijeli pravokutnik
-         for dY  in  range ( 0 , 4 ) : 
-            for dX in  range ( 1 , 10  ) :
+         for dY  in  range ( 0 , 9 ) : 
+            for dX in  range ( 1 , 9  ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY						# pomak po y
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-               if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknuti :
-                  mc.setBlock(gdjeX , gdjeY , gdjeZ , SAND.id)			#postavi blok
+               if  mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknuti :
+                  mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR.id)			#postavi blok
    return 1
 
    

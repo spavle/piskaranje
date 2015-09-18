@@ -5,7 +5,7 @@ from crtaj_vrata import *
 from crtaj_blok import *
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-for nr in range ( 0 , 20 , 15):
+for nr in range ( 0 , 1 , 15):
    crtaj_blok ( 1 + nr , -1 , -2 , 5+ nr , 0 , 2 , 98 )   # kameni temelji
    crtaj_blok ( 1 + nr , 1 , -2 , 5 + nr , 2 , 2 , 5 , 2)    # drveni zidovi
    crtaj_blok ( 2 + nr , 0 , -1 , 4 + nr , 1 , 1 , 0 )    # prazno unutra

@@ -97,14 +97,15 @@ def crtaj_bitmap ( inOrigin ,  smjer , inBitmap , pomakX = 0 , pomakZ = 0) :
    return
 
 
-def crtaj_klopku   ( origin , polozaj , smjer , rel_smjer  , blok_id = 96   ) :
+def crtaj_klopku   ( origin , polozaj , smjer , rel_smjer  , stanje="zatvoreno" , visina = "dolje" ,blok_id = 96    ) :
    """
    funkcija za trapdora
    1. parametar lista sa koordinatama ( X , Y , Z )
    2. parametar lista sa koordinatama ( X , Y , Z )
    3. apsolutni smjer crtanja
    4. relativni smjer crtanja "meni"  , "odmene" , "lijevo" , "desno"
-   5. tip vrata koja se crtaju 
+   5. crta se otvoren ili zatvoren  [ "zatvoreno" , "otvoreno" ]
+   6. crta se na dnu ili vrhu bloka [ "dolje" , "gore" ]
 
    na kraju rel_smjer 0 - premameni 1 - odmene 2 - lijevo 3 - desno
    kvaka moze biti kvaka = "lijevo" ili "desno"
@@ -116,20 +117,22 @@ def crtaj_klopku   ( origin , polozaj , smjer , rel_smjer  , blok_id = 96   ) :
    3: Facing south
    """
    
-   lista_smjera = [ "meni"  , "odmene" , "lijevo" , "desno" ] # transformacija opisa u vrijednost
+   lista_smjera = [ "meni"  , "odmene" , "lijevo" , "desno" ] # transformacija opisa u vrijednost u kojem smjeru "gleda"
+   lista_stanja = [ "zatvoreno" , "otvoreno" ]
+   lista_polozaja = [ "dolje" , "gore" ]     # na dnu ili vrhu bloka
    pomoc = lista_smjera.index ( rel_smjer )
    rel_smjer = pomoc
    
    tablica_smjera = {}     # definira se tablica prevoda
-   tablica_smjera [ ( 1 , 0  ) ] = ( 0 , 2 , 1 , 3 ) # gledam north
-   tablica_smjera [ ( -1 , 0 ) ] = ( 2 , 0 , 3 , 1 ) # gledam south
-   tablica_smjera [ ( 0 , 1 ) ] = ( 1 , 3 , 2 , 0 )  # gledam east
-   tablica_smjera [ ( 0 , -1 ) ]= ( 3 , 1 , 0 , 2 )  # gledam weast
+   tablica_smjera [ ( 1 , 0  ) ] = ( 2 , 3  , 0 , 1 ,  ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = ( 3 , 2 , 1 , 0 ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 0  , 1 , 2 , 3 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 1 , 0 , 3 , 2 )  # gledam weast
    
    buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
    blok_dv =  buff [ rel_smjer ]
    od = rel2abs ( origin , polozaj , smjer )
-   mc.setBlock (  od , blok_id , blok_dv )   #stavi trapdor
+   mc.setBlock (  od , blok_id , blok_dv  +  lista_stanja.index ( stanje ) * 4  + lista_polozaja.index ( visina ) * 8  )   #stavi trapdor 4-bit otvoreno zatvoreno, 8-mi bit gore dolje
    return
    
 def crtaj_vrata ( origin , polozaj , smjer , rel_smjer  , blok_id = 64  , kvaka = "lijevo"  ) :

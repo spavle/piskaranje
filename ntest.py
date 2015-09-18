@@ -99,11 +99,19 @@ crtaj_banak   ( gdjeSam () , [ 4 , 4 , 0 ]  , [ 3 , 4 , 1  ] , gdjeGledam ()   )
 """
 
 #test crtanja kreveta
-
+"""
 crtaj_krevet  ( gdjeSam () , ( 3 , -1 , 0 ) , ( 2 , -1 , 0 )  , gdjeGledam () , "meni"  )
 crtaj_krevet  ( gdjeSam () , ( 2 , 1 , 0 ) , ( 3 , 1 , 0 )   , gdjeGledam () , "odmene")
 crtaj_krevet  ( gdjeSam () , ( 5 , 0 , 0 ) , ( 5 , -1 , 0 )   , gdjeGledam () , "lijevo")
 crtaj_krevet  ( gdjeSam () , ( 5 , 1 , 0 ) , ( 5 , 2 , 0 )   , gdjeGledam () , "desno")
+"""
+
+#test crtanja kapka
+
+crtaj_klopku  ( gdjeSam () , ( 3 , 0 , 0 ) ,  gdjeGledam () , "meni", visina = "dolje")
+crtaj_klopku  ( gdjeSam () , ( 5 , 0 , 0 ) ,  gdjeGledam () , "odmene" , "otvoreno")
+crtaj_klopku  ( gdjeSam () , ( 7 , 0 , 0 ) ,  gdjeGledam () , "lijevo" , visina = "gore")
+crtaj_klopku  ( gdjeSam () , ( 9 , 0 , 0 ) ,  gdjeGledam () ,  "desno" , stanje="zatvoreno" , visina = "gore")
 
 
 
