@@ -17,9 +17,14 @@ def crtaj_blok ( dorigin  ) :
    dZ = dorigin [ 1 ]
    dY = dorigin [ 2 ]
    
+   if dY < 2 :
+      materijal_zidovi = 98 # nizi katovi od stonebricksa
+   else :
+      materijal_zidovi = 5 # visi katovi od oak wood dasaka
+   
    # sobe podovi i zidovi
    crtaj_kvadar ( orMj , [ 0 + dX, 0 + dZ , 0 + dY ]  , [ 6 + dX, 6 + dZ , 3 + dY  ] , orSm , 0 , 0 ) # blok zrak sobe
-   crtaj_kvadar ( orMj , [ 0 + dX, 0 + dZ , 0 + dY ]  , [ 6 + dX, 6 + dZ , 2 + dY  ] , orSm , 98 , 0 ) # zidovi
+   crtaj_kvadar ( orMj , [ 0 + dX, 0 + dZ , 0 + dY ]  , [ 6 + dX, 6 + dZ , 2 + dY  ] , orSm , materijal_zidovi , 0 ) # zidovi
    crtaj_kvadar ( orMj , [ 1 + dX, 1 + dZ , 0 + dY ]  , [ 5 + dX, 5 + dZ , 2 + dY  ] , orSm , 0 , 0 ) # rupa u sobi
    crtaj_kvadar ( orMj , [ 0 + dX, 0 + dZ , 3 + dY ]  , [ 6 + dX, 6 + dZ , 3 + dY  ] , orSm , 5 , 0 ) # blok oak wood strop i eventualno podd ssobe iznad pod
    
@@ -94,7 +99,7 @@ crtaj_kvadar ( orMj , [ 9 , -3 , 3 ]  , [ 13 , 3 , 3  ] , orSm , 5 , 0 ) # korek
 crtaj_vrata ( orMj , [ 8 , -1 , 0 ] , orSm , "meni"  , blok_id = 64     )  # ulazna vrata
 crtaj_kvadar ( orMj , [ 8 , 0 , 1 ]  , [ 8 , 0 , 1 ] , orSm , 98 , 0 ) #korekcija prozora
 crtaj_vrata ( orMj , [ 8 , 5 , 4 ] , orSm , "meni"  , blok_id = 64     )  # balkonska vrata
-crtaj_kvadar ( orMj , [ 8 , 6 , 5 ]  , [ 8 , 6 , 5  ] , orSm , 98 , 0 ) #korekcija prozora
+crtaj_kvadar ( orMj , [ 8 , 6 , 5 ]  , [ 8 , 6 , 5  ] , orSm , 5 , 0 ) #korekcija prozora
 #  podrumska vrata
 crtaj_vrata ( orMj , [ 8 , -6 , -4 ] , orSm , "odmene"  , blok_id = 64     )  # lijeva soba
 crtaj_vrata ( orMj , [ 8 , 0 , -4 ] , orSm , "odmene"  , blok_id = 64     )  # srednja soba
@@ -105,8 +110,16 @@ crtaj_vrata ( orMj , [ 8 , -6 , 0 ] , orSm , "odmene"  , blok_id = 64     )  # l
 crtaj_kvadar ( orMj , [ 8 , 5 , 1 ]  , [ 8 , 7 , 1 ] , orSm , 98 , 0 ) #korekcija prozora
 crtaj_vrata ( orMj , [ 8 , 6 , 0 ] , orSm , "odmene"  , blok_id = 64     )  # desna soba
 #  kat vrata
-crtaj_kvadar ( orMj , [ 8 , -5 , 5 ]  , [ 8 , -7 , 5 ] , orSm , 98 , 0 ) #korekcija prozora
+crtaj_kvadar ( orMj , [ 8 , -5 , 5 ]  , [ 8 , -7 , 5 ] , orSm , 5 , 0 ) #korekcija prozora
 crtaj_vrata ( orMj , [ 8 , -6 , 4 ] , orSm , "odmene"  , blok_id = 64     )  # lijeva soba
+# attic vrata
+#  kat vrata
+crtaj_kvadar ( orMj , [ 8 , -5 , 9 ]  , [ 8 , -7 , 9 ] , orSm , 5 , 0 ) #korekcija prozora
+crtaj_vrata ( orMj , [ 8 , -6 , 8 ] , orSm , "odmene"  , blok_id = 64     )  # lijeva soba
+crtaj_kvadar ( orMj , [ 10 , -3 , 9 ]  , [ 12 , -3 , 9 ] , orSm , 5 , 0 ) #korekcija prozora
+crtaj_vrata ( orMj , [ 11 , -3 , 8 ] , orSm , "lijevo"  , blok_id = 64     )  # lijeva soba
+
+
 
 # stepenice
 
@@ -118,28 +131,46 @@ for ha in ( -3 , 1 , 5 , 9  ):
    crtaj_stepenice ( orMj , ( 12 , - 6 , ha  ) , ( 13 , -6 , ha  ) , orSm , blok_id = 53 , rel_smjer  = "desno" ) # druga stepenica
    crtaj_stepenice ( orMj , ( 11 , - 7 , ha + 1 ) , ( 11 , -8 , ha + 1 ) , orSm , blok_id = 53 , rel_smjer  = "odmene" ) # treca stepenica
    crtaj_stepenice ( orMj , ( 10 , - 7 , ha + 2 ) , ( 10 , -8 , ha + 2 ) , orSm , blok_id = 53 , rel_smjer  = "odmene" ) # cetvrta stepenica
- 
+   crtaj_kvadar ( orMj , [ 11 , -5 , ha - 1 ]  , [ 11 , -6 , ha + 1 ] , orSm , 85 , 0 ) # ograda oko stepenica
+   crtaj_kvadar ( orMj , [ 11 , -6 , ha - 1 ]  , [ 10 , -6 , ha + 1 ] , orSm , 85 , 0 ) # ograda oko stepenica
+   
+# ulaz
+
+crtaj_kvadar ( orMj , [ 2 , -2 , 0 ]  , [ 2 , 2 , 0 ] , orSm , 85 , 0 ) # ulazna ograda
+crtaj_vrataograde ( orMj , [ 2 , 0 , 0 ] ,  orSm ,  "lijevo_desno" )  
+
+#terasa
+crtaj_kvadar ( orMj , [ 2 , 3 , 4 ]  , [ 7 , 9 , 4 ] , orSm , 85 , 0 ) # brze je napuni se terasa ogradom
+crtaj_kvadar ( orMj , [ 3 , 4 , 4 ]  , [ 7 , 8 , 4 ] , orSm , 0 , 0 ) # pa se izbusi rupa
+
+#kutije i banak na ulazu
+
+crtaj_kutiju ( orMj , (13,1,0) , (13,2,0) , orSm , rel_smjer  = "meni" )
+crtaj_kutiju ( orMj , (13,4,0) , (13,5,0) , orSm , rel_smjer  = "meni" )
+crtaj_banak ( orMj , (13,3,0) , (13,3,0) , orSm )
+
+
 #krov 
 for br in range ( 0 , 4 ) :
    #gornji krov
-   crtaj_stepenice ( orMj , ( 7 + br , - 10 + br , 15 + br) , ( 7 + br , - 2 - br , 15 + br ) , orSm , blok_id = 53 , rel_smjer  = "meni" ) # prednja kosina
-   crtaj_stepenice ( orMj , ( 15 - br , - 10 + br , 15 + br) , ( 15 - br , - 2 - br , 15 + br ) , orSm , blok_id = 53 , rel_smjer  = "odmene" ) # zadnja kosina
-   crtaj_stepenice ( orMj , ( 7 + br , - 10 + br , 15 + br) , ( 15 - br , - 10 + br , 15 + br ) , orSm , blok_id = 53 , rel_smjer  = "lijevo" ) # lijeva kosina
-   crtaj_stepenice ( orMj , ( 7 + br ,  - 2 - br , 15 + br) , ( 15 - br ,  - 2 - br , 15 + br ) , orSm , blok_id = 53 , rel_smjer  = "desno" ) # lijeva kosina
+   crtaj_stepenice ( orMj , ( 7 + br , - 10 + br , 15 + br) , ( 7 + br , - 2 - br , 15 + br ) , orSm , blok_id = 134 , rel_smjer  = "meni" ) # prednja kosina
+   crtaj_stepenice ( orMj , ( 15 - br , - 10 + br , 15 + br) , ( 15 - br , - 2 - br , 15 + br ) , orSm , blok_id = 134 , rel_smjer  = "odmene" ) # zadnja kosina
+   crtaj_stepenice ( orMj , ( 7 + br , - 10 + br , 15 + br) , ( 15 - br , - 10 + br , 15 + br ) , orSm , blok_id = 134 , rel_smjer  = "lijevo" ) # lijeva kosina
+   crtaj_stepenice ( orMj , ( 7 + br ,  - 2 - br , 15 + br) , ( 15 - br ,  - 2 - br , 15 + br ) , orSm , blok_id = 134 , rel_smjer  = "desno" ) # lijeva kosina
    #prednji krov
-   crtaj_stepenice ( orMj , ( 1 + br , - 10 + br , 7 + br) , ( 1 + br , - 2 - br , 7 + br ) , orSm , blok_id = 53 , rel_smjer  = "meni" ) # prednja kosina
+   crtaj_stepenice ( orMj , ( 1 + br , - 10 + br , 7 + br) , ( 1 + br , - 2 - br , 7 + br ) , orSm , blok_id = 134 , rel_smjer  = "meni" ) # prednja kosina
    #crtaj_stepenice ( orMj , ( 15 + br , - 10 - br , 7 + br) , ( 15 + br , - 2 - br , 7 + br ) , orSm , blok_id = 53 , rel_smjer  = "odmene" ) # zadnja kosina
-   crtaj_stepenice ( orMj , ( 1 + br , - 10 + br , 7 + br) , ( 7  , - 10 + br , 7 + br ) , orSm , blok_id = 53 , rel_smjer  = "lijevo" ) # lijeva kosina
-   crtaj_stepenice ( orMj , ( 1 + br ,  - 2 - br , 7 + br) , ( 7  ,  - 2 - br , 7 + br ) , orSm , blok_id = 53 , rel_smjer  = "desno" ) # lijeva kosina
+   crtaj_stepenice ( orMj , ( 1 + br , - 10 + br , 7 + br) , ( 7  , - 10 + br , 7 + br ) , orSm , blok_id = 134 , rel_smjer  = "lijevo" ) # lijeva kosina
+   crtaj_stepenice ( orMj , ( 1 + br ,  - 2 - br , 7 + br) , ( 7  ,  - 2 - br , 7 + br ) , orSm , blok_id = 134 , rel_smjer  = "desno" ) # lijeva kosina
    #desni krov
-   crtaj_stepenice ( orMj , ( 7 + br , - 2 , 7 + br) , ( 7 + br , 10 - br , 7 + br ) , orSm , blok_id = 53 , rel_smjer  = "meni" ) # prednja kosina
-   crtaj_stepenice ( orMj , ( 15 - br , - 2 , 7 + br) , ( 15 - br , 10 - br , 7 + br ) , orSm , blok_id = 53 , rel_smjer  = "odmene" ) # zadnja kosina
-   #crtaj_stepenice ( orMj , ( 7 + br , - 10 + br , 15 + br) , ( 15 - br , - 10 + br , 15 + br ) , orSm , blok_id = 53 , rel_smjer  = "lijevo" ) # lijeva kosina
-   crtaj_stepenice ( orMj , ( 7 + br ,  10 - br , 7 + br) , ( 15 - br ,  10 - br , 7 + br ) , orSm , blok_id = 53 , rel_smjer  = "desno" ) # lijeva kosina
+   crtaj_stepenice ( orMj , ( 7 + br , - 2 , 7 + br) , ( 7 + br , 10 - br , 7 + br ) , orSm , blok_id = 134 , rel_smjer  = "meni" ) # prednja kosina
+   crtaj_stepenice ( orMj , ( 15 - br , - 2 , 7 + br) , ( 15 - br , 10 - br , 7 + br ) , orSm , blok_id = 134 , rel_smjer  = "odmene" ) # zadnja kosina
+   #crtaj_stepenice ( orMj , ( 7 + br , - 10 + br , 15 + br) , ( 15 - br , - 10 + br , 15 + br ) , orSm , blok_id = 134 , rel_smjer  = "lijevo" ) # lijeva kosina
+   crtaj_stepenice ( orMj , ( 7 + br ,  10 - br , 7 + br) , ( 15 - br ,  10 - br , 7 + br ) , orSm , blok_id = 134 , rel_smjer  = "desno" ) # lijeva kosina
 
-crtaj_kvadar ( orMj , [ 11 , -6 , 18 ]  , [ 11 , -6 , 18  ] , orSm , 126 , 8 ) # toranj - slabovi za zatvoriti rupu u sredini krova   wooden Upper Oak Wood Slab   
-crtaj_kvadar ( orMj , [ 5 , -6 , 10 ]  , [ 7 , -6 , 10  ] , orSm , 126 , 8 ) # prednji krov - slabovi za zatvoriti rupu u sredini krova   wooden Upper Oak Wood Slab   
-crtaj_kvadar ( orMj , [ 11 , -2 , 10 ]  , [ 11 , 6 , 10  ] , orSm , 126 , 8 ) # desni krov - slabovi za zatvoriti rupu u sredini krova   wooden Upper Oak Wood Slab   
+crtaj_kvadar ( orMj , [ 11 , -6 , 18 ]  , [ 11 , -6 , 18  ] , orSm , 126 , 9 ) # toranj - slabovi za zatvoriti rupu u sredini krova   wooden Upper Oak Wood Slab   
+crtaj_kvadar ( orMj , [ 5 , -6 , 10 ]  , [ 7 , -6 , 10  ] , orSm , 126 , 9 ) # prednji krov - slabovi za zatvoriti rupu u sredini krova   wooden Upper Oak Wood Slab   
+crtaj_kvadar ( orMj , [ 11 , -2 , 10 ]  , [ 11 , 6 , 10  ] , orSm , 126 , 9 ) # desni krov - slabovi za zatvoriti rupu u sredini krova   wooden Upper Oak Wood Slab   
    
 
 
