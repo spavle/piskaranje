@@ -37,7 +37,7 @@ def zachepi (  ) : # pripremi teren 15 polja naprijed
    
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dY in range ( 0  ,45 ) :  # kanal
-         mc.postToChat("Level %f" % dY )
+         #mc.postToChat("Level %f" % dY )
          for dZ in range (  - dY - prosirenje  , dY + prosirenje + 1  ) : 
             for dX in range ( 1 + duzina_kanala + 2 ) :
                """
@@ -258,7 +258,7 @@ def kraj () :
 zachepi ()
 pocetak ()
 jump ()
-for br in range (50) :
+for br in range (500) :
    zachepi ()
    segment ()
    jump ()
