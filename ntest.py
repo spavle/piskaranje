@@ -107,11 +107,21 @@ crtaj_krevet  ( gdjeSam () , ( 5 , 1 , 0 ) , ( 5 , 2 , 0 )   , gdjeGledam () , "
 """
 
 #test crtanja kapka
-
+"""
 crtaj_klopku  ( gdjeSam () , ( 3 , 0 , 0 ) ,  gdjeGledam () , "meni", visina = "dolje")
 crtaj_klopku  ( gdjeSam () , ( 5 , 0 , 0 ) ,  gdjeGledam () , "odmene" , "otvoreno")
 crtaj_klopku  ( gdjeSam () , ( 7 , 0 , 0 ) ,  gdjeGledam () , "lijevo" , visina = "gore")
 crtaj_klopku  ( gdjeSam () , ( 9 , 0 , 0 ) ,  gdjeGledam () ,  "desno" , stanje="zatvoreno" , visina = "gore")
+"""
+
+#test crtanja terasa
+
+#rudnik
+crtaj_terase ( gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam () , korak = 2 , visina = 7 , sirina = 10 , baklje="da")
+
+# terasa
+#crtaj_terase ( gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam () , korak = 2 , visina = 17 , sirina = 5)
+
 
 
 
