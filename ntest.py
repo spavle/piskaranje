@@ -117,10 +117,19 @@ crtaj_klopku  ( gdjeSam () , ( 9 , 0 , 0 ) ,  gdjeGledam () ,  "desno" , stanje=
 #test crtanja terasa
 
 #rudnik
-crtaj_terase ( gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam () , korak = 2 , visina = 7 , sirina = 10 , baklje="da")
+#crtaj_terase ( gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam () , korak = 1 , visina = 9 , sirina = 11 , baklje="da")
 
 # terasa
-#crtaj_terase ( gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam () , korak = 2 , visina = 17 , sirina = 5)
+#crtaj_terase ( gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam () , korak = 3 , visina = 20 , sirina = 20, baklje="da")
+
+#strmina
+
+#crtaj_terase ( gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam () , korak = 2 , visina = 50 , sirina = 50, baklje="ne")
+
+# kopanje
+
+filter (  gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam (),   7 ,    11 ,  11, "da") 
+crtaj_terase ( gdjeSam () , ( 11 , 0 , 0 ) ,  gdjeGledam () , korak = 1 , visina = 9 , sirina = 11 , baklje="da")
 
 
 
