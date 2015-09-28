@@ -16,6 +16,8 @@ dv = 2
 def pocetak_sortera () :
    crtaj_hopper    ( orMj , [ 2  , 1, 4 ]  , [ 2 ,  1 , 4  ] , orSm , "odmene" ) # gornji
    crtaj_kutiju ( orMj , [ 1 , 1, 5 ]  , [ 2 ,  1 , 5  ] , orSm , rel_smjer  = "lijevo" )
+   for br in range ( 0 , 4 ):
+      crtaj_stepenice ( orMj , [ 2 , 5 - br , 0 + br ]  , [ 2 ,  5 - br , 0 + br  ] , orSm , blok_id = 128 , rel_smjer  = "desno" )
 
 def crtaj_modul ( dX  ):
    """
@@ -51,9 +53,29 @@ def crtaj_modul ( dX  ):
    crtaj_hopper    ( orMj , [ 3 + dX , 3, 1 ]  , [ 3 + dX ,  3 , 0  ] , orSm , "desno" ) # hopper ispod kutije
    crtaj_kutiju ( orMj , [ 3 + dX , 4, 1 ]  , [ 3 + dX ,  5 , 0  ] , orSm , rel_smjer  = "meni" , blok_id = kmat     ) # dodatne kutije
    
+def kraj ( dX , duzina ) :
+   dX += 1
+   crtaj_hopper    ( orMj , [ 3 + dX , 1, 4 ]  , [ 3 + dX ,  1 , 4  ] , orSm , "odmene" ) # dovod i razmak od sortirke
+   
+   for brojalica in range ( 0 ,  duzina   ) :
+      dX += 1                       # translacija "udalj"
+      kutija = 54                   #materijali za kutije
+      tkutija = 146
+      if ( int ( dX ) % 2 == 1 ) :
+         kmat = kutija
+      else :
+         kmat = tkutija
+
+      crtaj_hopper    ( orMj , [ 3 + dX , 1, 4 ]  , [ 3 + dX ,  1 , 4  ] , orSm , "odmene" ) # gornji hopper
+      crtaj_hopper    ( orMj , [ 3 + dX , 1, 0 ]  , [ 3 + dX ,  1 , 3  ] , orSm , "desno" ) # razvod po kutijama
+      crtaj_kutiju ( orMj , [ 3 + dX , 2, 0 ]  , [ 3 + dX ,  3 , 3  ] , orSm , rel_smjer  = "meni" , blok_id = kmat     ) #kutije
+      
+      
    
    
 pocetak_sortera ()
    
-for br in range ( 0, 45 ):
+for br in range ( 0, 6 ):
    crtaj_modul ( br )
+   
+kraj (  br , 4)

@@ -146,12 +146,12 @@ crtaj_redstonetorch ( gdjeSam () , ( 3 , 0 , 5 ) ,  gdjeGledam () ,  "gore"   )
 """
 
 # test crtanja repeatera +++
-"""
+
 crtaj_repeater   ( gdjeSam () , [ 5 , 0 , 0 ]  , [ 5 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "meni"    ) 
 crtaj_repeater   ( gdjeSam () , [ 6 , 0 , 0 ]  , [ 6 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
 crtaj_repeater   ( gdjeSam () , [ 7 , 0 , 0 ]  , [ 7 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
 crtaj_repeater   ( gdjeSam () , [ 8 , 0 , 0 ]  , [ 8 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
-"""
+
 
 # test crtanja comparatora +++
 """
@@ -167,10 +167,20 @@ crtaj_redstonedust ( gdjeSam () , [ 5 , 2 , 0 ]  , [ 8 , 9 , 0  ] , gdjeGledam (
 """
 
 # test crtanja hoppera 
-
+"""
 crtaj_hopper    ( gdjeSam () , [ 4 , 0 , 0 ]  , [ 4 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "dolje"   )
 crtaj_hopper   ( gdjeSam () , [ 6 , 0 , 0 ]  , [ 6 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "meni"    ) 
 crtaj_hopper   ( gdjeSam () , [ 8 , 0 , 0 ]  , [ 8 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
 crtaj_hopper   ( gdjeSam () , [ 10 , 0 , 0 ]  , [ 10 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
 crtaj_hopper   ( gdjeSam () , [ 12  , 0 , 0 ]  , [ 12 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
+"""
 
+# test crtanja dispensers 
+"""
+crtaj_dispenser    ( gdjeSam () , [ 2 , 0 , 0 ]  , [ 4 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "gore"   )
+crtaj_dispenser    ( gdjeSam () , [ 4 , 0 , 0 ]  , [ 4 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "dolje"   )
+crtaj_dispenser   ( gdjeSam () , [ 6 , 0 , 0 ]  , [ 6 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "meni"    ) 
+crtaj_dispenser   ( gdjeSam () , [ 8 , 0 , 0 ]  , [ 8 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
+crtaj_dispenser   ( gdjeSam () , [ 10 , 0 , 0 ]  , [ 10 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
+crtaj_dispenser   ( gdjeSam () , [ 12  , 0 , 0 ]  , [ 12 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
+"""
