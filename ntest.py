@@ -128,9 +128,49 @@ crtaj_klopku  ( gdjeSam () , ( 9 , 0 , 0 ) ,  gdjeGledam () ,  "desno" , stanje=
 
 # kopanje
 
+"""
 filter (  gdjeSam () , ( 0 , 0 , 0 ) ,  gdjeGledam (),   7 ,    11 ,  11, "da") 
 crtaj_terase ( gdjeSam () , ( 11 , 0 , 0 ) ,  gdjeGledam () , korak = 1 , visina = 9 , sirina = 11 , baklje="da")
+"""
 
+#test crtanja redstone baklji +++
 
+"""
+crtaj_deblo ( gdjeSam () , ( 3 , 0 , 0 ) , (3 ,0 , 5 ) , gdjeGledam () , "gore" , 17, 0  )
 
+crtaj_redstonetorch ( gdjeSam () , ( 2 , 0 , 1 ) ,  gdjeGledam () ,  "meni"   )
+crtaj_redstonetorch ( gdjeSam () , ( 3 , 1 , 2 ) ,  gdjeGledam () ,  "desno"   )
+crtaj_redstonetorch ( gdjeSam () , ( 4 , 0 , 3 ) ,  gdjeGledam () ,  "odmene"   )
+crtaj_redstonetorch ( gdjeSam () , ( 3 , -1 , 4 ) ,  gdjeGledam () , "lijevo"   )
+crtaj_redstonetorch ( gdjeSam () , ( 3 , 0 , 5 ) ,  gdjeGledam () ,  "gore"   )
+"""
+
+# test crtanja repeatera +++
+"""
+crtaj_repeater   ( gdjeSam () , [ 5 , 0 , 0 ]  , [ 5 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "meni"    ) 
+crtaj_repeater   ( gdjeSam () , [ 6 , 0 , 0 ]  , [ 6 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
+crtaj_repeater   ( gdjeSam () , [ 7 , 0 , 0 ]  , [ 7 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
+crtaj_repeater   ( gdjeSam () , [ 8 , 0 , 0 ]  , [ 8 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
+"""
+
+# test crtanja comparatora +++
+"""
+crtaj_comparator   ( gdjeSam () , [ 5 , 0 , 0 ]  , [ 5 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "meni"    ) 
+crtaj_comparator   ( gdjeSam () , [ 6 , 0 , 0 ]  , [ 6 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
+crtaj_comparator   ( gdjeSam () , [ 7 , 0 , 0 ]  , [ 7 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
+crtaj_comparator   ( gdjeSam () , [ 8 , 0 , 0 ]  , [ 8 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
+"""
+
+#test crtanja redstone zhica +++
+"""
+crtaj_redstonedust ( gdjeSam () , [ 5 , 2 , 0 ]  , [ 8 , 9 , 0  ] , gdjeGledam () )
+"""
+
+# test crtanja hoppera 
+
+crtaj_hopper    ( gdjeSam () , [ 4 , 0 , 0 ]  , [ 4 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "dolje"   )
+crtaj_hopper   ( gdjeSam () , [ 6 , 0 , 0 ]  , [ 6 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "meni"    ) 
+crtaj_hopper   ( gdjeSam () , [ 8 , 0 , 0 ]  , [ 8 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
+crtaj_hopper   ( gdjeSam () , [ 10 , 0 , 0 ]  , [ 10 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
+crtaj_hopper   ( gdjeSam () , [ 12  , 0 , 0 ]  , [ 12 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
 

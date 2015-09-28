@@ -9,8 +9,120 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 orMj = gdjeSam ()
 orSm = gdjeGledam ()
 
+#coblestone
+"""
+materijal = 4
+dv = 0
+"""
+
+#stone
+"""
+materijal = 1
+dv = 0
+"""
+
+#granite
+"""
+materijal = 1
+dv = 1
+"""
+
+#Polished granite
+"""
+materijal = 1
+dv = 2
+"""
+
+#diorite ( bijeli )
+"""
+materijal = 1
+dv = 3
+"""
+
+#polished diorite ( bijeli )
+"""
+materijal = 1
+dv = 4
+"""
+
+#andesite ( sivi )
+"""
+materijal = 1
+dv = 5
+"""
+
+#polished andesite ( sivi )
+"""
+materijal = 1
+dv = 6
+"""
+
+#polished andesite ( sivi )
+"""
+materijal = 1
+dv = 7
+"""
+
+#sandstone 
+"""
+materijal = 24
+dv = 0
+"""
+
+#sandstone sa uzorkom
+"""
 materijal = 24
 dv = 1
+"""
+
+#sandstone glatki
+"""
+materijal = 24
+dv = 2
+"""
+
+#stoneslab
+"""
+materijal = 43
+dv = 0
+"""
+
+#sandstonestoneslab
+"""
+materijal = 43
+dv = 1
+"""
+
+#stonebrick
+"""
+materijal = 98
+dv = 0
+"""
+
+#moss stonebrick
+"""
+materijal = 98
+dv = 1
+"""
+
+#cracked stonebrick
+"""
+materijal = 98
+dv = 2
+"""
+
+#ornament stonebrick
+"""
+materijal = 98
+dv = 3
+"""
+
+#brick
+#"""
+materijal = 45
+dv = 0
+#"""
+
 
 # reset
 crtaj_kvadar ( orMj , [  1 , -6 , -1 ]  , [ 12 , 6 , -9  ] , orSm , 12 , 0 ) # pjesak

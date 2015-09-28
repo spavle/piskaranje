@@ -266,6 +266,83 @@ def crtaj_vrata ( origin , polozaj , smjer , rel_smjer  , blok_id = 64  , kvaka 
    mc.setBlock (  do , blok_id , blok_dv )         #gornji dio vrata
    
    
+def crtaj_repeater ( origin , poc , kraj , smjer , rel_smjer  = "meni" , blok_id = 93 , dv = 0 ) :
+   """
+   funkcija za crtanje stepenica
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   3. parametar lista sa koordinatama ( X , Y , Z )
+   4. smjer crtanja apsolutni
+   5. gdje su okrenute 
+   6. koji blok 
+   7. stanje prekidaca
+ 
+   stepenice se crtaju "u rupi"
+   rel_smjer 0 - lijevo 1 - desno 2 - odmene 3 - meni
+   
+   stepenice imaju zadano u Minecraftu
+   0: North
+   1: East
+   2: South
+   3: west
+   """
+   
+   lista_smjera = [   "meni",  "odmene"      ,"lijevo"     , "desno" ] # transformacija opisa u vrijednost
+   pomoc = lista_smjera.index ( rel_smjer )
+   rel_smjer = pomoc  
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = (  1 , 3 , 2 , 0 ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = (  3 , 1 , 0 , 2  ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 2 , 0 , 3 , 1 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 0 , 2 , 1 , 3  )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ] + 2
+   od = rel2abs ( origin , poc , smjer )
+   do = rel2abs ( origin , kraj , smjer )
+   mc.setBlocks ( od , do , blok_id , blok_dv )
+   return
+
+def crtaj_comparator ( origin , poc , kraj , smjer , rel_smjer  = "meni" , blok_id = 149 , dv = 0 ) :
+   """
+   funkcija za crtanje stepenica
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   3. parametar lista sa koordinatama ( X , Y , Z )
+   4. smjer crtanja apsolutni
+   5. gdje su okrenute 
+   6. koji blok 
+   7. stanje prekidaca
+ 
+   stepenice se crtaju "u rupi"
+   rel_smjer 0 - lijevo 1 - desno 2 - odmene 3 - meni
+   
+   stepenice imaju zadano u Minecraftu
+   0: North
+   1: East
+   2: South
+   3: west
+   """
+   
+   lista_smjera = [   "meni",  "odmene"      ,"lijevo"     , "desno" ] # transformacija opisa u vrijednost
+   pomoc = lista_smjera.index ( rel_smjer )
+   rel_smjer = pomoc  
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = (  1 , 3 , 2 , 0 ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = (  3 , 1 , 0 , 2  ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 2 , 0 , 3 , 1 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 0 , 2 , 1 , 3  )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ] + 2
+   od = rel2abs ( origin , poc , smjer )
+   do = rel2abs ( origin , kraj , smjer )
+   mc.setBlocks ( od , do , blok_id , blok_dv )
+   return
+
+
 
 def crtaj_vrataograde ( origin , poc ,  smjer ,  rel_smjer  , blok_id = 107    ) :
    """
@@ -342,6 +419,41 @@ def crtaj_deblo ( origin , poc , kraj , smjer , rel_smjer , blok_id = 17 , podti
    mc.setBlocks ( od , do , blok_id , blok_dv )
    
    
+def crtaj_hopper    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 154 , blok_dv = 0 ) :
+   """
+   funkcija za crtanje hoppera
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   3. smjer crtanja apsolutni
+   4. gdje su okrenute 
+
+   rel_smjer 0 - desno 1 - lijevo 2 - prema 3 - odmene  4 - gore  pokazuje smjer u kojem baklja "gleda"
+
+   stepenice imaju zadano u Minecraftu
+   0: Facing north.
+   1: Facing south.
+   2: Facing east.
+   3: Facing west.
+   5: up
+   """
+   lista_smjera = [ "dolje", "nista" , "desno" , "lijevo" , "meni"  , "odmene"   ] # transformacija opisa u vrijednost
+   pomoc = lista_smjera.index ( rel_smjer )
+   rel_smjer = pomoc  
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = ( 0 , 0 , 3 , 2 , 4 , 5   ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = ( 0 , 0 ,  2 , 3 , 5 , 4  ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 0 , 0 ,  4 , 5 , 2 , 3   )  # gledam east
+   
+   tablica_smjera [ ( 0 , -1 ) ]= ( 0 , 0 ,  5 , 4 , 3 , 2  )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ]
+   od = rel2abs ( origin , poc , smjer )
+   do = rel2abs ( origin , kraj , smjer )
+   mc.setBlocks ( od , do , blok_id , blok_dv  )
+   
+
 def crtaj_baklju ( origin , poc ,  smjer ,  rel_smjer   ) :
    """
    funkcija za crtanje stepenica
@@ -353,10 +465,10 @@ def crtaj_baklju ( origin , poc ,  smjer ,  rel_smjer   ) :
    rel_smjer 0 - desno 1 - lijevo 2 - prema 3 - odmene  4 - gore  pokazuje smjer u kojem baklja "gleda"
 
    stepenice imaju zadano u Minecraftu
-   1: East
-   2: West
-   3: South
-   4: North
+   0: Facing north.
+   1: Facing east.
+   2: Facing south.
+   3: Facing west.
    5: up
    """
    lista_smjera = [  "desno" , "lijevo" , "meni"  , "odmene" , "gore" ] # transformacija opisa u vrijednost
@@ -375,6 +487,40 @@ def crtaj_baklju ( origin , poc ,  smjer ,  rel_smjer   ) :
    mc.setBlocks ( od , od , 50 , blok_dv )
    return
 
+def crtaj_redstonetorch ( origin , poc ,  smjer ,  rel_smjer   ) :
+   """
+   funkcija za crtanje stepenica
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   4. smjer crtanja apsolutni
+   6. gdje su okrenute 
+
+   rel_smjer 0 - desno 1 - lijevo 2 - prema 3 - odmene  4 - gore  pokazuje smjer u kojem baklja "gleda"
+
+   stepenice imaju zadano u Minecraftu
+   0: Facing north.
+   1: Facing east.
+   2: Facing south.
+   3: Facing west.
+   5: up
+   """
+   lista_smjera = [  "desno" , "lijevo" , "meni"  , "odmene"  ] # transformacija opisa u vrijednost
+   pomoc = lista_smjera.index ( rel_smjer )
+   rel_smjer = pomoc  
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = (  3 , 4 , 2 , 1 , 5 ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = (  4 , 3 , 1 , 2 , 5 ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = (  2 , 1 , 4 , 3  ,5 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= (  1 , 2 , 3 , 4 , 5 )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ]
+   od = rel2abs ( origin , poc , smjer )
+   mc.setBlocks ( od , od , 76 , blok_dv )
+   return
+   
+   
 def crtaj_banak ( origin , poc , kraj , smjer , rel_smjer  = "meni" , blok_id = 58     ) :
    crtaj_ljestve  ( origin , poc , kraj , smjer , rel_smjer   , blok_id    )
    
@@ -509,7 +655,8 @@ def crtaj_stepenice ( origin , poc , kraj , smjer , blok_id = 53 , rel_smjer  = 
    mc.setBlocks ( od , do , blok_id , blok_dv )
    return
 
-   
+def crtaj_redstonedust ( origin , poc  , kraj , smjer ) :
+   crtaj_kvadar ( origin , poc  , kraj , smjer , 55 , blok_dv = 0 )
    
 def crtaj_kvadar ( origin , poc  , kraj , smjer , blok_id , blok_dv = 0 ) :
    """
