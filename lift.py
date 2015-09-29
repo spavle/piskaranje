@@ -14,6 +14,8 @@ orSm = gdjeGledam ()
 materijal = 1
 dv = 1
 
+
+
 #prvi red
 crtaj_kvadar ( orMj , [ 2  , 0, 0 ]  , [ 2  , 4 , 0  ] , orSm , materijal , dv ) # temeljniblok
 crtaj_redstonedust ( orMj , [ 2 , 0, 1 ]  , [ 2 ,  0 , 1  ] , orSm )
