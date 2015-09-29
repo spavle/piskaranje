@@ -97,6 +97,9 @@ def crtaj_bitmap ( inOrigin ,  smjer , inBitmap , pomakX = 0 , pomakZ = 0) :
    return
 
 def nadji_dno ( origin , polozaj , smjer ):
+   """
+   pronalazi bedrock dubinu
+   """
    marker = 1
    dY = 0
    while marker  == 1 :
@@ -106,7 +109,7 @@ def nadji_dno ( origin , polozaj , smjer ):
             gdje = rel2abs ( origin ,  ( dX , dZ , dY )  , smjer  )
             if mc.getBlock ( gdje ) == BEDROCK.id :
                marker = 0
-   return dY
+   return ( dY   )
             
             
       
@@ -125,7 +128,51 @@ def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 1
    zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
    zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
    od = rel2abs ( origin , polozaj , smjer ) 
-   for dY in range ( visina , -1 , -1 ) : # ozgora prema dolje
+   for dY in range ( visina + 2 , -1 , -1 ) : # ozgora prema dolje
+      mc.postToChat("dY: %f" % ( dY ) )
+      for dX in range ( 1 + dubina , 0 , -1 ) : # sprijeda prema nazad
+         mc.postToChat("dX: %f" % ( dX ) )
+         for dZ in range ( -1 - sirina , sirina + 2 ) : #slijeva nadesno
+            #gdjeX , gdjeY , gdjeZ = rel2abs ( inPoz ,  ( dX , dZ , dY )  , smjer  ) 
+            gdje = rel2abs ( origin ,  ( dX , dZ , dY )  , smjer  ) # hodalica
+            kojiBlok = mc.getBlock ( gdje ) # koji blok je tu
+            if ( dX == 1 + dubina ) or ( abs ( dZ ) > abs ( sirina ) ) or dY >= visina :   #jeli prvi red ili krajnji lijevi ili krajnji desni blok ili "gornji" red
+               # prvi je red -- mici opasno
+               if kojiBlok in zaMaknutiOpasno :
+                  mc.setBlock(gdje , STONE.id , 2 )	
+            else :
+               # ostali redovi -- filtriraj
+               if kojiBlok in zaMaknuti :
+                  mc.setBlock(gdje , AIR.id)			#postavi blok
+            
+            if (( dX ==  dubina ) or   (int ( dX ) % 5  == 0) ) and ( int ( dZ ) % 5 ) == 0 and ( dY == 0 ) and baklje == "da":
+               mc.setBlock ( gdje , 50 , 5 )
+            """
+            #  Za dugacke korake
+            if ( int ( dZ ) % 10 ) == 0 and ( int ( dX - 1 ) % 10 == 0 ) :
+               mc.setBlock ( gdje , 50 , 5 )
+            """
+#            if ( dZ ==   0 ) and baklje == "da":
+#               mc.setBlock ( gdje , 50 , 5 )
+
+   mc.postToChat("KRAJ !!"  )
+                  
+   return 1
+
+def filter2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") :
+   """
+   ispred lika cisti kvadratasto podrucje
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   3. apsolutni smjer crtanja
+   4. broj terasa
+   5. dubina terase
+   6. sirina terase
+   """
+   zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
+   zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
+   od = rel2abs ( origin , polozaj , smjer ) 
+   for dY in range ( 0 , ( visina - 2 ) , -1 ) : # ozgora prema dolje
       mc.postToChat("dY: %f" % ( dY ) )
       for dX in range ( 1 + dubina , 0 , -1 ) : # sprijeda prema nazad
          mc.postToChat("dX: %f" % ( dX ) )
@@ -156,7 +203,7 @@ def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 1
                   
    return 1
 
-def filter2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") :
+def rupa2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") :
    """
    ispred lika cisti kvadratasto podrucje
    1. parametar lista sa koordinatama ( X , Y , Z )
@@ -169,10 +216,10 @@ def filter2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 
    zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
    zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
    od = rel2abs ( origin , polozaj , smjer ) 
-   for dY in range ( 0 ,visina  , -1 ) : # ozgora prema dolje
+   for dY in range ( 8 , ( visina - 2 ) , -1 ) : # ozgora prema dolje
       mc.postToChat("dY: %f" % ( dY ) )
       for dX in range ( 1 + dubina , 0 , -1 ) : # sprijeda prema nazad
-         mc.postToChat("dX: %f" % ( dX ) )
+         #mc.postToChat("dX: %f" % ( dX ) )
          for dZ in range ( -1 - sirina , sirina + 2 ) : #slijeva nadesno
             #gdjeX , gdjeY , gdjeZ = rel2abs ( inPoz ,  ( dX , dZ , dY )  , smjer  ) 
             gdje = rel2abs ( origin ,  ( dX , dZ , dY )  , smjer  ) # hodalica
@@ -183,18 +230,9 @@ def filter2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 
                   mc.setBlock(gdje , STONE.id , 2 )	
             else :
                # ostali redovi -- filtriraj
-               if kojiBlok in zaMaknuti :
-                  mc.setBlock(gdje , AIR.id)			#postavi blok
+               mc.setBlock(gdje , AIR.id)			#chisti rupu
+                  
             
-            if (( dX ==  dubina ) or   (int ( dX ) % 5  == 0) ) and ( int ( dZ ) % 5 ) == 0 and baklje == "da":
-               mc.setBlock ( gdje , 50 , 5 )
-            """
-            #  Za dugacke korake
-            if ( int ( dZ ) % 10 ) == 0 and ( int ( dX - 1 ) % 10 == 0 ) :
-               mc.setBlock ( gdje , 50 , 5 )
-            """
-#            if ( dZ ==   0 ) and baklje == "da":
-#               mc.setBlock ( gdje , 50 , 5 )
 
    mc.postToChat("KRAJ !!"  )
                   

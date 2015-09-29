@@ -22,18 +22,18 @@ def tunel ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -9 , 9 ) :    		# prodji cijeli pravokutnik
+      for dZ in  range( -13 , 14 ) :    		# prodji cijeli pravokutnik
          for dY  in  range ( -3 , 9 ) : 
-            for dX in  range ( -1 , 53  ) :
+            for dX in  range ( -1 , 183  ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknutiOpasno :
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 2 )			#postavi blok      
 
-   for dZ in  range( -7 , 8 ) :    		# prodji cijeli pravokutnik
+   for dZ in  range( -11 , 12 ) :    		# prodji cijeli pravokutnik
          for dY  in  range ( -1 , 8 ) : 
-            for dX in  range ( 1 , 51  ) :
+            for dX in  range ( 1 , 181  ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
