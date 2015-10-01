@@ -77,7 +77,7 @@ for br in popis :
    sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"%s",Count:2b,Damage:%ss,},1:{Slot:1b,id:"%s",Count:5b,Damage:%ss,},2:{Slot:2b,id:"%s",Count:5b,Damage:%ss,},3:{Slot:3b,id:"%s",Count:5b,Damage:%ss,},4:{Slot:4b,id:"%s",Count:5b,Damage:%ss,},],id:"Hopper",Lock:"",}' % ( br [ 0 ] , br [ 1 ]  , br [ 0 ] , br [ 1 ] , br [ 0 ] , br [ 1 ] , br [ 0 ] , br [ 1 ] , br [ 0 ] , br [ 1 ] )
    bla = rel2abs ( orMj , ( 5 + vrtilica , 0 ,  0  ) , orSm )
    mc.setBlockWithNBT(bla,154,0 , sto )
-   vrtilica = vrtilica + 2
+   vrtilica = vrtilica + 1
    
 """
 """
