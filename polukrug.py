@@ -39,7 +39,7 @@ def tunel ( duzina = 5, radius = 5.0 , silazak = "ne"):
             gdjeY=radnaPozicija.y + dY - dYmodifikator
             gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
             mc.postToChat("dY : %f dZ: %f omjer %f sinus: %f " % (  dY , dZ ,  ( abs ( float ( dZ ) )   / radius  )  , math.sin  ( abs ( float ( dZ ) )   / radius  ) ) )
-            if  ( abs ( dY  +1 )   <   (   ( math.cos  (  float ( dZ )   / radius  ) ) *    radius        )      ) :
+            if  ( abs ( dY  +2 )   <   (   ( math.cos  (  float ( dZ )   / radius  ) ) *    radius        )      ) :
                mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR)			#postavi blok
             elif ( dZ == 0  ) :
                mc.setBlock( gdjeX , gdjeY , gdjeZ , 89 )
@@ -53,7 +53,7 @@ def tunel ( duzina = 5, radius = 5.0 , silazak = "ne"):
                   #mc.setBlock(gdjeX , gdjeY , gdjeZ , 155 , 1)			#postavi blok
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , 3,0)			#postavi blok
       if silazak == "da"  :  
-         dYmodifikator += 0.4
+         dYmodifikator += 0.14
    return 1
 
    
@@ -61,4 +61,4 @@ def tunel ( duzina = 5, radius = 5.0 , silazak = "ne"):
 zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER.id , LAVA_FLOWING.id , LAVA.id ]
 zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanje sve poremete
  
-tunel ( 150 , 6 , silazak = "ne" )
+tunel ( 150 , 8 , silazak = "ne" )
