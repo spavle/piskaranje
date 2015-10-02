@@ -23,15 +23,15 @@ materijal = 126
 dv = 8
 
 
-#crtaj_kvadar ( orMj , ( 1  , -1 , -1 ) , ( 3 , 1 , -1 ) , orSm , materijal , dv ) # zrak iznad stepenica
+crtaj_kvadar ( orMj , ( 1  , -1 , -1 ) , ( 3 , 1 , -1 ) , orSm , materijal , dv ) # zrak iznad stepenica
 
-bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )
+#bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )
 
 #mc.setBlockWithNBT(bla,63,5,"{id:\"Sign\",Text1:\"Line1\",Text2:\"Pablo\",Text3:\"Line3\",Text4:\"Line4\"}")
 
 #mc.setBlockWithNBT(bla,54,1, "{id:\"Chest\",CustomName:\"GLUPOST\",Items:[0:{Slot:1b,id:\"minecraft:diamond_axe\",Count:25b,Damage:0s,},1:{Slot:13b,id:\"minecraft:dirt\",Count:22b,Damage:0s,},]}" )
-bla = rel2abs ( orMj , ( 1  , 0 ,  0  ) , orSm )
-print ( mc.getBlockWithNBT (bla) )
+#bla = rel2abs ( orMj , ( 1  , 0 ,  0  ) , orSm )
+#print ( mc.getBlockWithNBT (bla) )
 #[12:09:39] [Thread-248/INFO]: [CHAT] Block(54, 2, '{Items:[0:{Slot:1b,id:"minecraft:diamond_axe",Count:1b,Damage:0s,},1:{Slot:13b,id:"minecraft:dirt",Count:22b,Damage:0s,},],id:"Chest",Lock:"",}')
 
 """

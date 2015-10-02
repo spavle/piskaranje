@@ -32,12 +32,13 @@ dv = 8
 # ++++++++++++++++++++++++++++++++++++++++++ NAPRAVI NESTO U SVIJETU ITEM
 #mc.spawnEntity('Item',3,0,3,'{Item:{id:389,Count:25}}')
 
-#playerPos = mc.player.getPos()
+playerPos = mc.player.getPos()
 
-# bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )
+#bla = rel2abs ( orMj , ( 2  , 0 ,  0  ) , orSm )
 
 # +++++++++++++++++++++++++++++++++++++++++++++ GENERIRA KONJA
-id = mc.spawnEntity('EntityHorse', 0,0,6 , "{NoAI:0,Type:0,Variant:3,Tame:1}")
+id = mc.spawnEntity('EntityHorse', int ( playerPos.x + 1 ) ,int ( playerPos.y ), int ( playerPos.z ), "{NoAI:0,Type:2,Variant:3,Tame:1}")
+print id
 
 
 #bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )
