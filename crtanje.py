@@ -553,6 +553,20 @@ def crtaj_dispenser    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 23
    do = rel2abs ( origin , kraj , smjer )
    mc.setBlocks ( od , do , blok_id , blok_dv  )
    
+def smjer_hoppera ( smjer ,  rel_smjer) :
+   lista_smjera = [ "dolje", "nista" , "desno" , "lijevo" , "meni"  , "odmene"   ] # transformacija opisa u vrijednost
+   pomoc = lista_smjera.index ( rel_smjer )
+   rel_smjer = pomoc  
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = ( 0 , 0 , 3 , 2 , 4 , 5   ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = ( 0 , 0 ,  2 , 3 , 5 , 4  ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 0 , 0 ,  4 , 5 , 2 , 3   )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 0 , 0 ,  5 , 4 , 3 , 2  )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ]
+   return blok_dv
    
 def crtaj_hopper    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 154 , blok_dv = 0 ) :
    """

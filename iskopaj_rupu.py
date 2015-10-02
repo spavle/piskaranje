@@ -58,7 +58,7 @@ crtaj_kvadar ( orMj , [ 2, -4, -1 ]  , [ 2 , -4, 0  ] , orSm , STONE.id , 2 )
 
 
 
-sorter  ( 7 , 2 , 0 , 100 , 30 )
+sorter  ( 7 , 2 , 0 , 40 , 10 )
 
 crtaj_hopper    ( orMj , ( 7 , 3 , 6 ) , ( 7 , 3 , 6 ) , orSm ,  "dolje" ) 
 crtaj_hopper    ( orMj , ( 7 , 3 , 5 ) , ( 7 , 3 , 5 ) , orSm ,  "odmene" ) 

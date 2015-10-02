@@ -1,7 +1,10 @@
 # crtanje automatizirani sorter
 #definicija objekta i poziv rutine za crtanje
+import time 
+import sys
 from crtanje import *		#tu je funkcija koju zovem
-from crtanje2 import *		#tu je funkcija koju zovem
+from popis_blokova import *
+
 from mc import *			
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
@@ -27,7 +30,7 @@ def pocetak_sortera ( orMj ) :
 
 def crtaj_modul ( orMj , dX  ):
    """
-   dx - udaljenost modula
+   dX - udaljenost modula
    koja_kutija - par - obicna , nepar - traped
    """
    """
@@ -48,6 +51,20 @@ def crtaj_modul ( orMj , dX  ):
    
    crtaj_hopper    ( orMj , [ 3 + dX , 1, 2 ]  , [ 3 + dX ,  1 , 3  ] , orSm , "desno" ) # dva doljnja
    crtaj_hopper    ( orMj , [ 3 + dX , 1, 4 ]  , [ 3 + dX ,  1 , 4  ] , orSm , "odmene" ) # gornji
+   
+   sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"%s",Count:4b,Damage:%ss,},1:{Slot:1b,id:"%s",Count:5b,Damage:%ss,},2:{Slot:2b,id:"%s",Count:5b,Damage:%ss,},3:{Slot:3b,id:"%s",Count:5b,Damage:%ss,},4:{Slot:4b,id:"%s",Count:5b,Damage:%ss,},],id:"Hopper",Lock:"",}' % ( popis [ dX ] [ 0 ] , popis [ dX ]  [ 1 ]  , popis [ dX ]  [ 0 ] , popis [ dX ]  [ 1 ] , popis [ dX ]  [ 0 ] , popis [ dX ]  [ 1 ] , popis [ dX ]  [ 0 ] , popis [ dX ]  [ 1 ] , popis [ dX ]  [ 0 ] , popis [ dX ]  [ 1 ] )
+   bla = rel2abs ( orMj , ( 3 + dX , 1 ,  3  ) , orSm )
+   mc.postToChat("orginal: %s %s " %  ( dX , bla )    )
+   time.sleep ( 1 )
+   mc.setBlockWithNBT(bla,154,smjer_hoppera ( orSm , "desno")  , sto )   #hopper gleda na istok 
+   bla = rel2abs ( orMj , ( 3 + dX , 1 ,  2  ) , orSm )
+   mc.postToChat("orginal: %s %s " %  ( dX , bla )    )
+   time.sleep ( 1 )
+   mc.setBlockWithNBT(bla,154,smjer_hoppera ( orSm , "desno")  , sto )   #hopper gleda na istok 
+   #bla = rel2abs ( orMj , ( 3 + dX , 5 ,  2  ) , orSm )
+   #mc.setBlock(bla,53,4  )       #oak wood stairs naopako, gledaju na istok
+   crtaj_stepenice ( orMj , ( 3 + dX , 5 ,  2  ) , ( 3 + dX , 5 ,  2  ) , orSm , blok_id = 53 , rel_smjer  = "desno" , gore_dolje = "da"  )
+
    
    kutija = 54
    tkutija = 146

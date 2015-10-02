@@ -1,4 +1,3 @@
-
 # Test novih funkcija iz modula CRTANJE.PY
 #definicija objekta i poziv rutine za crtanje
 from crtanje import *		#tu je funkcija koju zovem
