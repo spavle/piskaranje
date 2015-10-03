@@ -66,6 +66,20 @@ def rel2abs ( inPoz ,  dPoz  , smjer  ) :
       
    return (  [ gdjeX , gdjeY , gdjeZ  ] )
    
+
+def premjesti_origin ( orMj , dX , dZ , dY ,  orSm ):
+   # origin ispred na sredini 
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   
+   #korekcija polozaja
+   orMjA = gdjeSam ()
+   orMj   = rel2abs ( orMjA ,  ( dX , dZ , dY )   , orSm  ) 
+   bla = orMj [ 1 ]
+   orMj [ 1 ] = orMj [ 2 ]
+   orMj [ 2 ] = bla
+   return orMj
+   
 def crtaj_tocku ( inLista , blok_id , blok_dv = 0 , pomakX = 0 , pomakZ = 0 ) :
    """
    funkcija za crtanje tocke

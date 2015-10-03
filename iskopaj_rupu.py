@@ -1,4 +1,4 @@
-# crtanje automatizirani sorter
+# crtanje rupe lifta i sortera
 #definicija objekta i poziv rutine za crtanje
 import time 
 from crtanje import *		#tu je funkcija koju zovem

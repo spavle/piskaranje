@@ -1,64 +1,42 @@
-#ispred lika cisti pravokutnik  i to samo blokove iz liste pod i strop QUARTZ & QUARTZ - HARDCODED & LOSHE
+#ispred lika polukruzni tunel  i to samo blokove iz liste 
 
+from crtanje import *		#tu je funkcija koju zovem
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def tunel ( duzina = 5, radius = 5.0 , silazak = "ne"):
+def polukrugTunel (   iX=0 , iZ=0 , iY=0 , radius = 5 , duzina = 10 , korekcija = 0.0 , uspon = 0 ):
    """
-   ispred polukruzni tunel i to samo blokove iz liste pod i strop QUARTZ & QUARTZ
+   ispred polukruzni tunel i to samo blokove iz liste 
+   iX, - relativni pomak po X
+   iZ, - relativni pomak po Z
+   iY , - relativni pomak po Y
+   radius - radius tunela default 5.0 
+   duzina - duzina tunela default 5, 
+   korekcija - korekcija oblika, da bude ljepsi default 0.0 
+   uspon - korekcija smjera koliko gore dolje  default  0
    """
    #gdje sam
-   radnaPozicija = mc.player.getPos()		
-   #kamo gledam
-   smjerRada = mc.player.getDirection ()			#uzmem kamo gledam
-   #smjer gledanja radi preglednosti spremimo u "vektor""
-   Vx=0												#pocetne vrijednosti su nule
-   Vz=0
-   if abs (smjerRada.x) > abs (smjerRada.z): 		#nadje se dominanti smjer i spremi u vektor
-      Vx=round(smjerRada.x)
-   else:
-      Vz=round(smjerRada.z)
-   #mc.postToChat("vX: %f vZ: %f " % ( Vx , Vz  ) )
-   """
-   #crtanje
-   if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -13 , 14 ) :    		# prodji cijeli pravokutnik
-         for dY  in  range ( -3 , 9 ) : 
-            for dX in  range ( -1 , 183  ) :
-               gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
-               gdjeY=radnaPozicija.y + dY
-               gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-               if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknutiOpasno :
-                  mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 2 )			#postavi blok      
-   """
-   dYmodifikator = 0.0
-   for dX in  range( 1 , duzina + 1 ) :    		# prodji cijeli pravokutnik
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+    
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar kupole
+
+   dYmodifikator = 0.0     # pocetna vrijednost promjene visine
+   for dX in  range( 0 , duzina  ) :    		# prodji cijeli pravokutnik
       for dZ  in  range ( - radius , radius + 1 ) : 
          for dY in  range ( - 1 , radius + 1  ) :     
-            gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
-            gdjeY=radnaPozicija.y + dY - dYmodifikator
-            gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-            mc.postToChat("dY : %f dZ: %f omjer %f sinus: %f " % (  dY , dZ ,  ( abs ( float ( dZ ) )   / radius  )  , math.sin  ( abs ( float ( dZ ) )   / radius  ) ) )
-            if  ( abs ( dY  +2 )   <   (   ( math.cos  (  float ( dZ )   / radius  ) ) *    radius        )      ) :
-               mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR)			#postavi blok
+            gdje = rel2abs ( orMj ,  ( dX , dZ , dY + dYmodifikator )  , orSm  )  #relativne koordinate u apsolutne worlda
+            if  ( abs ( dY  + korekcija )   <   (   ( math.cos  (  float ( dZ )   / radius  ) ) *    radius        )      ) :
+               mc.setBlock(gdje , AIR)			#postavi blok
             elif ( dZ == 0  ) :
-               mc.setBlock( gdjeX , gdjeY , gdjeZ , 89 )
-
-               
+               mc.setBlock( gdje , 89 )
             if  ( dY == -1 ) :
                if (abs (dX) % 3) == 0  and ( abs (dZ) % 3 ) == 0 :
-                  mc.setBlock( gdjeX , gdjeY , gdjeZ , 89 )		#u podlogu obavezno stavi glowstone
-                  #mc.setBlock(gdjeX , gdjeY , gdjeZ , 155 , 0)			#postavi blok
+                  mc.setBlock( gdje , 89 )		   #u podlogu obavezno u razmaku stavi glowstone
                else :
-                  #mc.setBlock(gdjeX , gdjeY , gdjeZ , 155 , 1)			#postavi blok
-                  mc.setBlock(gdjeX , gdjeY , gdjeZ , 3,0)			#postavi blok
-      if silazak == "da"  :  
-         dYmodifikator += 0.14
+                  mc.setBlock(gdje , 2,0)			#postavi blok grassa
+      dYmodifikator += uspon
    return 1
-
-   
-   
-zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER.id , LAVA_FLOWING.id , LAVA.id ]
-zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanje sve poremete
  
-tunel ( 150 , 8 , silazak = "ne" )
+if __name__ == "__main__":    #direktan poziv
+   polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 5 , duzina = 15 , korekcija = 1 , uspon = 0.25  )
