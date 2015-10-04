@@ -49,21 +49,14 @@ def rel2abs ( inPoz ,  dPoz  , smjer  ) :
    DEFAULT: "gleda prema" X pozitivnoj osi
    
    vraca listu sa 3 koordinate
-   
    1. x
    2. y
    3. z
    """
    if  abs ( smjer [0] )  != abs ( smjer [1] ) :		# ne pod 45
-      """
-      gdjeX=inX + Vx*dX - Vz*dZ    		# pomak po x
-      gdjeZ=inZ + Vx*dZ + Vz*dX			# pomak po y
-      gdjeY  = inY + dY
-      """
       gdjeX=inPoz [0] + smjer [0]*dPoz[0] - smjer [1]*dPoz[1]    		# pomak po x
       gdjeZ=inPoz [1] + smjer [0]*dPoz[1] + smjer [1]*dPoz[0]			# pomak po y
-      gdjeY  = inPoz [2] + dPoz[2]
-      
+      gdjeY  = inPoz [2] + dPoz[2]  
    return (  [ gdjeX , gdjeY , gdjeZ  ] )
    
 
@@ -102,12 +95,10 @@ def crtaj_bitmap ( inOrigin ,  smjer , inBitmap , pomakX = 0 , pomakZ = 0) :
    3. bitmapa
    4. pomak po X osi
    5. pomak po Z osi 
-   
    Origin je zadan ili pozicija treba pretuci u apsolutne koordinate i nacrtati tocku za svaki red 
    """
    for red in inBitmap :
-      crtaj_tocku ( rel2abs (  inOrigin ,  [ red  [0] + pomakX, red  [1] + pomakZ, red  [2] ] , smjer ) , red  [3] , red  [4] )
-      
+      crtaj_tocku ( rel2abs (  inOrigin ,  [ red  [0] + pomakX, red  [1] + pomakZ, red  [2] ] , smjer ) , red  [3] , red  [4] )0
    return
 
 def nadji_dno ( origin , polozaj , smjer ):
@@ -170,7 +161,7 @@ def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 1
 #               mc.setBlock ( gdje , 50 , 5 )
 
    mc.postToChat("KRAJ !!"  )
-                  
+             
    return 1
 
 def filter2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") :
