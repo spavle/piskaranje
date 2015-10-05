@@ -15,8 +15,10 @@ orSm = gdjeGledam ()
 crtaj_kvadar ( orMj , (8, -sirina-4,-16)  , (8 + 6 + 4 + dubina,sirina + 4,1) , orSm , 98 , 1 )
 crtaj_kvadar ( orMj , (11+3,-sirina,-16)  , (11+3 + dubina ,sirina,-16) , orSm , 3 )
 
-crtaj_kvadar ( orMj , (11,-sirina - 3,-5)  , (11+6+dubina,sirina +3,0) , orSm , AIR.id , blok_dv = 0 )   #podest okolo
-crtaj_kvadar ( orMj , (11+3,-sirina ,-15)  , (11+3+dubina,sirina ,0) , orSm , AIR.id , blok_dv = 0 )     #centralna rupa
+crtaj_kvadar ( orMj , (11,-sirina - 3,-5)  , (11+6+dubina,sirina +3,0) , orSm , AIR.id ,  0 )   #podest okolo
+crtaj_kvadar ( orMj , (13,-sirina - 1,-5)  , (11+4+dubina,sirina +1,-5) , orSm , 85 ,  0 )   #ograda okolo
+
+crtaj_kvadar ( orMj , (11+3,-sirina ,-15)  , (11+3+dubina,sirina ,0) , orSm , AIR.id ,  0 )     #centralna rupa
 
 #2 kocke ravno
 crtaj_kvadar ( orMj , (1,-2,0)  , (2,2,1) , orSm , AIR.id , blok_dv = 0 )
@@ -40,6 +42,8 @@ crtaj_kvadar ( orMj , (11,-3,-6)  , (19,3,-16) , orSm ,98 , 1 )
 crtaj_kvadar ( orMj , (11,-3,-6)  , (19,3,-6) , orSm , 3 )
 crtaj_kvadar ( orMj , ( 19 , -3 , -5 )  , ( 19 , -3 , -5 ) , orSm , 89 )
 crtaj_kvadar ( orMj , ( 19 , 3 , -5 )  , ( 19 , 3 , -5 ) , orSm , 89 )
+crtaj_kvadar ( orMj , (11,-4,-5)  , (19,4,-5) , orSm , AIR.id ,  0 ) # prekid u ogradi
+crtaj_kvadar ( orMj , (19,-4,-5)  , (19,4,-5) , orSm , 85 ,  0 ) # OGRADA NAPRIJED
 
 # lijeve stepenice 3 dolje
 for br in range (4):
@@ -78,17 +82,17 @@ crtaj_kvadar ( orMj , ( 26 , 13 , -15 )  , ( 26 , 13 , -15 ) , orSm , 89 )
 
 #lampe okolo
 
-for br in range ( 5 , sirina + 1, 5 ) :   # lampe na podestu napred/nazad
+for br in range ( 5 , sirina + 1, 8 ) :   # lampe na podestu napred/nazad
    crtaj_kvadar ( orMj , (10,br,-2)  , (10,br,-2) , orSm , 89 )
    crtaj_kvadar ( orMj , (10,-br,-2)  , (10,-br,-2) , orSm , 89 )
    crtaj_kvadar ( orMj , (16+dubina+2,br,-2)  , (16+dubina+2,br,-2) , orSm , 89 )
    crtaj_kvadar ( orMj , (16+dubina+2,-br,-2)  , (16+dubina+2,-br,-2) , orSm , 89 )
    
-for br in range ( 5 , dubina + 1, 5 ) :   # lampe na podestu lijevo/desno
+for br in range ( 5 , dubina + 1, 8 ) :   # lampe na podestu lijevo/desno
    crtaj_kvadar ( orMj , (10+ br,sirina + 4,-2)  , (10 + br,sirina + 4,-2) , orSm , 89 )
    crtaj_kvadar ( orMj , (10+ br,-sirina - 4,-2)  , (10 + br,-sirina - 4,-2) , orSm , 89 )
 
-for br in range ( 5 , sirina + 1, 5 ) :   # lampe na dnu napred/nazad
+for br in range ( 5 , sirina + 1, 8 ) :   # lampe na dnu napred/nazad
    crtaj_kvadar ( orMj , (13,br,-14)  , (13,br,-14) , orSm , 89 )
    crtaj_kvadar ( orMj , (13,br,-9)  , (13,br,-9) , orSm , 89 )
    crtaj_kvadar ( orMj , (13,-br,-14)  , (13,-br,-14) , orSm , 89 )
@@ -98,9 +102,64 @@ for br in range ( 5 , sirina + 1, 5 ) :   # lampe na dnu napred/nazad
    crtaj_kvadar ( orMj , (13+dubina+2,-br,-14)  , (13+dubina+2,-br,-14) , orSm , 89 )
    crtaj_kvadar ( orMj , (13+dubina+2,-br,-9)  , (13+dubina+2,-br,-9) , orSm , 89 )
    
-for br in range ( 5 , dubina + 1, 5 ) :   # lampe dnu lijevo/desno
+for br in range ( 5 , dubina + 1, 8 ) :   # lampe dnu lijevo/desno
    crtaj_kvadar ( orMj , (13+ br,sirina+1 ,-14)  , (13 + br,sirina +1,-14) , orSm , 89 )
    crtaj_kvadar ( orMj , (13+ br,sirina+1 ,-9)  , (13 + br,sirina +1,-9) , orSm , 89 )
    crtaj_kvadar ( orMj , (13+ br,-sirina-1 ,-14)  , (13 + br,-sirina-1 ,-14) , orSm , 89 )
    crtaj_kvadar ( orMj , (13+ br,-sirina-1 ,-9)  , (13 + br,-sirina-1 ,-9) , orSm , 89 )
+
+
+#otvor za terasu 
+
+crtaj_kvadar ( orMj , ( 18 + dubina, -9 , -5 )  , (  28 + dubina  , 9 , 2 ) , orSm , 98 , 1 )     #mossy block
+crtaj_kvadar ( orMj , ( 29 + dubina , -9 , -5 )  , (  41 + 6+dubina , 9 , 2 ) , orSm , 98 , 0 )   #stone block
+crtaj_kvadar ( orMj , ( 18 + dubina, -6 , -5)  , ( 18 + dubina , 6 , -1 ) , orSm , AIR.id ,  0 )   #malo udubljenje
+crtaj_kvadar ( orMj , ( 17 + dubina, -7 , 0)  , ( 17 + dubina , 7 , 0 ) , orSm , 98 , 1  )   #nadvoj ispred
+crtaj_kvadar ( orMj , ( 14 + dubina, -7 , -6)  , ( 14 + dubina , 7 , -6 ) , orSm , 98 , 1  )   #nadvoj terse      ---------------------------
+crtaj_kvadar ( orMj , ( 14 + dubina, -7 , -5)  , ( 14 + dubina , 7 , -5 ) , orSm , 85 , 1  )   #nadvoj terse ograda
+crtaj_kvadar ( orMj , ( 15 + dubina, -6 , -5)  , ( 15 + dubina , 6 , -5 ) , orSm , AIR.id ,  0  )   #nadvoj terse brisanje stare ograde
+crtaj_kvadar ( orMj , ( 19 + dubina, -5 , -5)  , ( 19 + dubina , 5 , -4 ) , orSm , AIR.id ,  0 )   # doljnji rub
+crtaj_kvadar ( orMj , ( 19 + dubina, -5 , -3)  , ( 19 + dubina , -3 , -3 ) , orSm , AIR.id ,  0 )   # lijevi doljnji rub
+crtaj_kvadar ( orMj , ( 19 + dubina, 5 , -3)  , ( 19 + dubina , 3 , -3 ) , orSm , AIR.id ,  0 )   # desni doljnji rub
+
+crtaj_kvadar ( orMj , ( 18 + dubina, -5 , 0)  , ( 26 + dubina , 5 , -2 ) , orSm , AIR.id ,  0 )   #veliko udubljenje
+crtaj_kvadar ( orMj , ( 27 + dubina, -1 , 0)  , ( 27 + dubina , 1 , -2 ) , orSm , AIR.id ,  0 )   #udubljenje oko vrata
+
+crtaj_kvadar ( orMj , ( 27 + dubina, -3 , -1)  , ( 27 + dubina , -5 , -1 ) , orSm , 102 ,  0 )   #lijevi prozor
+crtaj_kvadar ( orMj , ( 27 + dubina, 3 , -1)  , ( 27 + dubina , 5 , -1 ) , orSm , 102 ,  0 )   #desni prozor
+
+
+crtaj_kvadar ( orMj , (19 + dubina,-4,1)  , (19 + dubina,-4,1) , orSm , 89 )  # lampa iznad terase prednja lijeva
+crtaj_kvadar ( orMj , (19 + dubina,4,1)  , (19 + dubina,4,1) , orSm , 89 )  # lampa iznad terase prednja desna
+crtaj_kvadar ( orMj , (20 + dubina,0,1)  , (20 + dubina,0,1) , orSm , 89 )  # lampa iznad terase srednja
+crtaj_kvadar ( orMj , (24 + dubina,0,1)  , (24 + dubina,0,1) , orSm , 89 )  # lampa iznad terase zadnja
+
+# ograda iznad terase
+crtaj_kvadar ( orMj , (19 + dubina,-2,-2)  , (21 + dubina,2,-2) , orSm , 85 )  # ograda terasa srednja
+crtaj_kvadar ( orMj , (20 + dubina,-1,-2)  , (21 + dubina,1,-2) , orSm , AIR.id , 0 )  # ograda terasa srednja
+
+for br in range ( 4 ) :
+   crtaj_kvadar ( orMj , ( br + 20 + dubina, -3 , -5 + br  )  , ( br + 20 + dubina , -5 , -5 + br ) , orSm , 109 ,  0 )   # lijevo stone brick stepenica
+   crtaj_kvadar ( orMj , ( br + 20 + dubina, -3 , -4 + br  )  , ( br + 20 + dubina , -5 , -2 ) , orSm , AIR.id ,  0 )   # zrak iznad stepenica
+   crtaj_kvadar ( orMj , ( br + 20 + dubina, 3 , -5 + br  )  , ( br + 20 + dubina , 5 , -5 + br ) , orSm , 109 ,  0 )   # desno stone brick stepenica
+   crtaj_kvadar ( orMj , ( br + 20 + dubina, 3 , -4 + br  )  , ( br + 20 + dubina , 5 , -2 ) , orSm , AIR.id ,  0 )   # zrak iznad stepenica
+   
+#hodnik i sobe iza terase
+crtaj_kvadar ( orMj , ( 29 + dubina, -1 , 0)  , ( 34 + dubina , 1 , -2 ) , orSm , AIR.id ,  0 )    #hodnik
+crtaj_kvadar ( orMj , (31 + dubina,0,1)  , (31 + dubina,0,1) , orSm , 89 )  # lampa hodnik
+crtaj_kvadar ( orMj , ( 28 + dubina, -3 , 0)  , ( 33 + dubina , -7 , -2 ) , orSm , AIR.id ,  0 )    #lijeva soba
+crtaj_kvadar ( orMj , (32 + dubina,-5,1)  , (32 + dubina,-5,1) , orSm , 89 )  # lampa lijeva soba
+crtaj_kvadar ( orMj , ( 28 + dubina, 3 , 0)  , ( 33 + dubina , 7 , -2 ) , orSm , AIR.id ,  0 )    #desna soba
+crtaj_kvadar ( orMj , (32 + dubina,5,1)  , (32 + dubina,5,1) , orSm , 89 )  # lampa desna soba
+crtaj_kvadar ( orMj , ( 36 + dubina, 7 , 0)  , ( 45 + dubina , -7 , -2 ) , orSm , AIR.id ,  0 )    #zadnja soba
+crtaj_kvadar ( orMj , (40 + dubina,-4,1)  , (40 + dubina,-4,1) , orSm , 89 )  # lampa zadnja soba
+crtaj_kvadar ( orMj , (40 + dubina,0,1)  , (40 + dubina,0,1) , orSm , 89 )  # lampa zadnja soba
+crtaj_kvadar ( orMj , (40 + dubina,4,1)  , (40 + dubina,4,1) , orSm , 89 )  # lampa zadnja soba
+
+
+crtaj_vrata ( orMj , ( 28 + dubina , 0 , -2 ) , orSm , "meni"  , blok_id = 64  , kvaka = "lijevo"  )     # prednja vrata
+crtaj_vrata ( orMj , ( 30 + dubina , -2 , -2 ) , orSm , "desno"  , blok_id = 64  , kvaka = "lijevo"  )   # lijeva vrata
+crtaj_vrata ( orMj , ( 30 + dubina , 2 , -2 ) , orSm , "lijevo"  , blok_id = 64  , kvaka = "lijevo"  )   # desna vrata
+crtaj_vrata ( orMj , ( 35 + dubina , 0 , -2 ) , orSm , "meni"  , blok_id = 64  , kvaka = "lijevo"  )     # zadnja vrata
+
 
