@@ -43,7 +43,7 @@ crtaj_kvadar ( orMj , (11,-3,-6)  , (19,3,-6) , orSm , 3 )
 crtaj_kvadar ( orMj , ( 19 , -3 , -5 )  , ( 19 , -3 , -5 ) , orSm , 89 )
 crtaj_kvadar ( orMj , ( 19 , 3 , -5 )  , ( 19 , 3 , -5 ) , orSm , 89 )
 crtaj_kvadar ( orMj , (11,-4,-5)  , (19,4,-5) , orSm , AIR.id ,  0 ) # prekid u ogradi
-crtaj_kvadar ( orMj , (19,-4,-5)  , (19,4,-5) , orSm , 85 ,  0 ) # OGRADA NAPRIJED
+crtaj_kvadar ( orMj , (19,-3,-5)  , (19,3,-5) , orSm , 85 ,  0 ) # OGRADA NAPRIJED
 
 # lijeve stepenice 3 dolje
 for br in range (4):
@@ -111,7 +111,7 @@ for br in range ( 5 , dubina + 1, 8 ) :   # lampe dnu lijevo/desno
 
 #otvor za terasu 
 
-crtaj_kvadar ( orMj , ( 18 + dubina, -9 , -5 )  , (  28 + dubina  , 9 , 2 ) , orSm , 98 , 1 )     #mossy block
+crtaj_kvadar ( orMj , ( 18 + dubina, -9 , -6 )  , (  28 + dubina  , 9 , 2 ) , orSm , 98 , 1 )     #mossy block
 crtaj_kvadar ( orMj , ( 29 + dubina , -9 , -5 )  , (  41 + 6+dubina , 9 , 2 ) , orSm , 98 , 0 )   #stone block
 crtaj_kvadar ( orMj , ( 18 + dubina, -6 , -5)  , ( 18 + dubina , 6 , -1 ) , orSm , AIR.id ,  0 )   #malo udubljenje
 crtaj_kvadar ( orMj , ( 17 + dubina, -7 , 0)  , ( 17 + dubina , 7 , 0 ) , orSm , 98 , 1  )   #nadvoj ispred
@@ -139,9 +139,11 @@ crtaj_kvadar ( orMj , (19 + dubina,-2,-2)  , (21 + dubina,2,-2) , orSm , 85 )  #
 crtaj_kvadar ( orMj , (20 + dubina,-1,-2)  , (21 + dubina,1,-2) , orSm , AIR.id , 0 )  # ograda terasa srednja
 
 for br in range ( 4 ) :
-   crtaj_kvadar ( orMj , ( br + 20 + dubina, -3 , -5 + br  )  , ( br + 20 + dubina , -5 , -5 + br ) , orSm , 109 ,  0 )   # lijevo stone brick stepenica
+   crtaj_stepenice ( orMj , ( br + 20 + dubina, -3 , -5 + br  )  , ( br + 20 + dubina , -5 , -5 + br ) , orSm , blok_id = 109 , rel_smjer  = "meni")
+   #crtaj_kvadar ( orMj , ( br + 20 + dubina, -3 , -5 + br  )  , ( br + 20 + dubina , -5 , -5 + br ) , orSm , 109 ,  0 )   # lijevo stone brick stepenica
    crtaj_kvadar ( orMj , ( br + 20 + dubina, -3 , -4 + br  )  , ( br + 20 + dubina , -5 , -2 ) , orSm , AIR.id ,  0 )   # zrak iznad stepenica
-   crtaj_kvadar ( orMj , ( br + 20 + dubina, 3 , -5 + br  )  , ( br + 20 + dubina , 5 , -5 + br ) , orSm , 109 ,  0 )   # desno stone brick stepenica
+   crtaj_stepenice ( orMj , ( br + 20 + dubina, 3 , -5 + br  )  , ( br + 20 + dubina , 5 , -5 + br ) , orSm , blok_id = 109 , rel_smjer  = "meni")
+   #crtaj_kvadar ( orMj , ( br + 20 + dubina, 3 , -5 + br  )  , ( br + 20 + dubina , 5 , -5 + br ) , orSm , 109 ,  0 )   # desno stone brick stepenica
    crtaj_kvadar ( orMj , ( br + 20 + dubina, 3 , -4 + br  )  , ( br + 20 + dubina , 5 , -2 ) , orSm , AIR.id ,  0 )   # zrak iznad stepenica
    
 #hodnik i sobe iza terase
