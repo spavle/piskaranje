@@ -62,16 +62,13 @@ def rel2abs ( inPoz ,  dPoz  , smjer  ) :
 
 def premjesti_origin ( orMj , dX , dZ , dY ,  orSm ):
    # origin ispred na sredini 
-   orMj = gdjeSam ()
-   orSm = gdjeGledam ()
    
    #korekcija polozaja
-   orMjA = gdjeSam ()
-   orMj   = rel2abs ( orMjA ,  ( dX , dZ , dY )   , orSm  ) 
-   bla = orMj [ 1 ]
-   orMj [ 1 ] = orMj [ 2 ]
-   orMj [ 2 ] = bla
-   return orMj
+   orMjA   = rel2abs ( orMj ,  ( dX , dZ , dY )   , orSm  ) 
+   bla = orMjA [ 1 ]
+   orMjA [ 1 ] = orMjA [ 2 ]
+   orMjA [ 2 ] = bla
+   return orMjA
    
 def crtaj_tocku ( inLista , blok_id , blok_dv = 0 , pomakX = 0 , pomakZ = 0 ) :
    """
@@ -98,7 +95,7 @@ def crtaj_bitmap ( inOrigin ,  smjer , inBitmap , pomakX = 0 , pomakZ = 0) :
    Origin je zadan ili pozicija treba pretuci u apsolutne koordinate i nacrtati tocku za svaki red 
    """
    for red in inBitmap :
-      crtaj_tocku ( rel2abs (  inOrigin ,  [ red  [0] + pomakX, red  [1] + pomakZ, red  [2] ] , smjer ) , red  [3] , red  [4] )0
+      crtaj_tocku ( rel2abs (  inOrigin ,  [ red  [0] + pomakX, red  [1] + pomakZ, red  [2] ] , smjer ) , red  [3] , red  [4] )
    return
 
 def nadji_dno ( origin , polozaj , smjer ):
@@ -117,8 +114,6 @@ def nadji_dno ( origin , polozaj , smjer ):
    return ( dY   )
             
             
-      
-
    
 def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") :
    """
@@ -210,13 +205,13 @@ def filter2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 
 
 def rupa2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") :
    """
-   ispred lika cisti kvadratasto podrucje
-   1. parametar lista sa koordinatama ( X , Y , Z )
-   2. parametar lista sa koordinatama ( X , Y , Z )
-   3. apsolutni smjer crtanja
-   4. broj terasa
-   5. dubina terase
-   6. sirina terase
+   ispred lika kopa rupu u dubinu
+   1. 
+   2. 
+   3. 
+   4. koliko je rupa duboka - visina
+   5. 
+   6. 
    """
    zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
    zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
@@ -242,7 +237,28 @@ def rupa2 ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10
    mc.postToChat("KRAJ !!"  )
                   
    return 1
-   
+
+def crtanje_stepenastiTunel ( orUlazni  , smjer ,  visina=3 , sirina = 5 , duzina = 10  , uspon = 0 ):
+   """
+   ispred polukruzni tunel  
+   iX, - relativni pomak po X
+   iZ, - relativni pomak po Z
+   iY , - relativni pomak po Y
+   sirina - sirina tunela default 5.0 
+   duzina - duzina tunela default 5, 
+   uspon - korekcija smjera koliko gore dolje  default  0
+   """
+   #gdje sam
+ 
+
+   dYmodifikator = 0.0     # pocetna vrijednost promjene visine
+   for dX in  range( 1 , duzina + 1 ) :    		# prodji cijeli pravokutnik
+      for dZ  in  range ( - sirina , sirina + 1 ) : 
+         for dY in  range ( 0 , visina ) :     
+            gdje = rel2abs ( orUlazni ,  ( dX , dZ , dY + dYmodifikator )  , smjer  )  #relativne koordinate u apsolutne worlda
+            mc.setBlock(gdje , AIR.id , 0 )			#postavi blok
+      dYmodifikator += uspon
+   return 1   
    
 def crtaj_terase ( origin , polozaj , smjer ,  visina = 7 ,  korak = 1 , sirina = 10 , baklje="ne") :
    """
@@ -288,6 +304,7 @@ def crtaj_terase ( origin , polozaj , smjer ,  visina = 7 ,  korak = 1 , sirina 
                   
    return 1
          
+
 
 
 def crtaj_klopku   ( origin , polozaj , smjer , rel_smjer  , stanje="zatvoreno" , visina = "dolje" ,blok_id = 96    ) :

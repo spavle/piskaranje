@@ -4,9 +4,9 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def polukrugTunel (   iX=0 , iZ=0 , iY=0 , radius = 5 , duzina = 10 , korekcija = 0.0 , uspon = 0 ):
+def polukrugTunel (   iX=0 , iZ=0 , iY=0 , radius = 5 , duzina = 10 , korekcija = 0.0 , uspon = -0.25 ):
    """
-   ispred polukruzni tunel i to samo blokove iz liste 
+   ispred polukruzni tunel  
    iX, - relativni pomak po X
    iZ, - relativni pomak po Z
    iY , - relativni pomak po Y
